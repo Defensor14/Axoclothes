@@ -6,18 +6,24 @@ const Catalogo = [
             tipo: "Jersey",
             precio: "$650",
         },
-        img: "images\product 05.jpg",
+        img: "../images/product 05.jpg",
     },
     {
         id: "Jacket_2",
         texto: {
-            titulo: "Jacket Dream",
+            titulo: "Jacket Solar",
             tipo: "Jersey",
-            precio: "$600",
-        },
-        img: "images\product 05.jpg",
+            precio: "$400",
+        }, 
+        img: "../images/product 18.jpg",
+    },
+    {
+        id: "Jacket_3",
+        texto: {
+            titulo: "Remera",
+            tipo: "T-shirt",
+            precio: "$40",
+        }, 
+        img: "../images/product 02.jpg",
     }
-]
-
-
-
+];

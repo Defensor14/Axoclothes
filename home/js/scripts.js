@@ -1,61 +1,24 @@
-const terjeta = document.querySelector("#tarjeta");
+document.addEventListener("DOMContentLoaded", function () {
+    const contenedorTarjetas = document.getElementById("contenedor_tarjetas");
+    const tarjetaBase = document.getElementById("tarjeta-base");
 
+    Catalogo.forEach(articulo => {
+        const nuevaTarjeta = document.createElement("div");
+        nuevaTarjeta.classList.add("col", "mb-5", "tarjeta");
 
-const estados_posibles = {
-    visisble: "texto_visible",
-    oculto: "texto_oculto"
-}  
+        // Crea la nueva tarjeta basada en la tarjeta base y reemplaza su contenido
+        nuevaTarjeta.innerHTML = tarjetaBase.innerHTML;
 
-let estado_actual = estados_posibles.oculto
+        // Modifica el contenido de la tarjeta dinámica según los datos del artículo
+        nuevaTarjeta.querySelector("#titulo").innerText = articulo.texto.titulo;
+        nuevaTarjeta.querySelector("#tipo").innerText = articulo.texto.tipo;
+        nuevaTarjeta.querySelector("#precio").innerText = articulo.texto.precio;
+        nuevaTarjeta.querySelector(".card-img-top").src = articulo.img;
 
-function mostrando(){
-    if(estado_actual == estados_posibles.oculto){
-        document.body.style.overflow="hidden"
+        // Agrega la nueva tarjeta al contenedor de tarjetas
+        contenedorTarjetas.appendChild(nuevaTarjeta);
+    });
 
-        Catalogo.forEach( articulo =>  {
-            console.log(articulo)
-            console.log(Catalogo)
-            let tarjeta_nuea = terjeta.cloneNode(true)
-
-            tarjeta_nuea.querySelector("#titulo").innerText = articulo.texto.titulo ?? "Erro 404"
-            tarjeta_nuea.querySelector("#tipo").innerText = articulo.texto.tipo ?? ""
-            tarjeta_nuea.querySelector("#precio").innerText = articulo.texto.precio ?? ""
-
-            document.querySelector("#contenedor_tarjetas").appendChild(tarjeta_nuea);
-        })
-
-
-       /* if(entrada_encontrada.texto.tecnica){
-            texto_lateral.querySelector("#tecnica_place").innerText = entrada_encontrada.texto.tecnica
-            texto_lateral.querySelector("#tecnica").classList.remove("display_hide")
-        }
-        else{   
-            texto_lateral.querySelector("#tecnica").classList.add("display_hide")
-        }
-
-let entrada_encontrada = Catalogo.find((entrada) => entrada.id == argumentos[1]) ?? 
-            {texto: "Parece que no tenemos ese dato"}
-
-        texto_lateral.querySelector("#titulo").innerText = entrada_encontrada.texto.titulo ?? "Erro 404"
-        texto_lateral.querySelector("#tipo").innerText = entrada_encontrada.texto.tipo ?? ""
-        texto_lateral.querySelector("#precio").innerText = entrada_encontrada.texto.precio ?? ""
-        if(entrada_encontrada.video){
-            imagen_lateral.querySelector("img").style.display = 'none'
-            imagen_lateral.querySelector("video").style.display = 'flex'
-            imagen_lateral.querySelector("video").src = entrada_encontrada.video
-
-            imagen_lateral.style.width = "100vw"
-            imagen_lateral.style.height = "65vh"
-
-            texto_lateral.style.width = "100vw"
-            texto_lateral.style.height = "35vh"
-            texto_lateral.style.marginTop ="65vh"
-
-        } */
-        
-        imagen_lateral.querySelector("img").src = entrada_encontrada.img ?? ""
-
-        estado_actual = estados_posibles.visisble
-    }
-}
-
+    // Muestra la tarjeta base después de agregar las tarjetas dinámicas
+    tarjetaBase.style.display = "none";
+});
