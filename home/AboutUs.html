@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>AXOCLOTHES</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <!------------------------------------------------------>
+        <!------------------------ESTILO------------------------>
+            <style>
+ 
+            .float{
+                        position: fixed;
+                        z-index: 1;
+                        bottom: 50px;
+                        right: 50px;
+                        border-radius: 100%;
+                        box-shadow: 0px 0px 54px -8px rgba(0,0,0,0.51);
+                        transition: ease 1s;
+                        animation: floating 2s ease infinite;
+                    }
+
+                    .img-w{
+                        width: 50px;
+                        height: 50px;
+                    }
+
+                    .float:hover{
+                        animation-play-state: paused;
+                        transform: scale(1.5);
+                        box-shadow: 0px 0px 20px 1px rgba(212, 17, 17, 0.64);
+                    }
+
+
+                    @keyframes floating{
+                        0%{
+                            transform: scale(1.0);
+                            box-shadow: 0px 0px 54px -8px rgba(0,0,0,0.51);
+                        }
+
+                        50%{
+                            transform: scale(1.2);
+                            box-shadow: 0px 0px 54px -8px rgba(0 0 0 / 64%);
+                        }
+
+                        100%{
+                            transform: scale(1.0);
+                            box-shadow: 0px 0px 54px -8px rgba(0,0,0,0.51);
+                        }
+                    }
+
+
+                #logo{
+                        transition: ease-in-out 3s;
+                        animation: rodar 6s ease infinite;
+                }
+
+
+
+                @keyframes rodar{
+                        0%{
+                            rotate: 0deg;
+                        }
+
+                        60%{
+                            rotate: 0deg;
+                        }
+
+                        80%{
+                            rotate: 360deg;
+                        }
+
+                        100%{
+                            rotate: 360deg;
+                        }
+                    }
+
+                    .linkitems{
+                        text-decoration: none;
+                        color: black;
+                    }
+
+                    .linkitems:hover{
+                        text-decoration: none;
+                        color: black;
+                    }
+
+
+            </style>
+    </head>
+
+
+        <!------------------------------------------------------>
+        <!------------------------BODY-------------------------->
+
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <div id="logo">
+                    <img src="../images/logo.svg" style="width: 30px; margin: 5px;">
+                </div>
+                <a class="navbar-brand" href="index.html">AXOCLOTHES</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Inicio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Comprar</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="AllProducts.html">Todos los productos</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="Trend.html">Tendencias</a></li>
+                                <li><a class="dropdown-item" href="New.html">¡NUEVO!</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Sobre nosotros</a></li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-dark" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            Carrito
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="headercontenedor2 py-5">
+            <div class="container px-4 px-lg-5 my-5">
+            </div>
+        </header>
+        <!-- Section-->
+        <div class="text-center text-white" style="background-color: black; width: 100%; padding: 20px;">
+            <h1 class="display-4 fw-bolder">SOBRE NOSOTROS</h1>
+            <p class="lead fw-normal text-white mb-0">Lo que nos hace ser tu tienda favorita.</p>
+        </div>
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                
+                <p style="text-align:center; font-size: 18px; margin-left: 30%; margin-right: 30%;">
+                    Somos una tienda juarense que pretende hacerte llegar ropa de la mejor calidad al mejor precio; priorizamos la satisfacción de nuestros clientes debido a que sabemos que gracias a ellos nos hemos posicionado como una de las tiendas en línea más prestigiosas de México.</P>
+                    <br> <h1 style="text-align:center">NUESTRO HIMNO</h1> 
+                    <P style="text-align:center; font-size: 18px;">
+                    Ay, se mena, se menea<br>
+                    Se menea, se menea<br>
+                    Se menea, se menea<br>
+                    Se menea, se menea<br>
+                    Se menea<br>
+                    Se menea, se menea la cadera<br>
+                    La cadera se menea, se menea<br>
+                    La cadera, la cadera, se menea<br>
+                    Se menea, la cadera, la cadera<br>
+                    Se menea, se menea, la cadera<br>
+                    Se menea, se menea la cadera<br>
+                    La cadera se menea, se menea<br>
+                    La cadera, la cadera, se menea<br>
+                    Se menea, la cadera, la cadera<br>
+                    Se menea, se menea, la cadera<br>
+                    Ay, se mena, se menea<br>
+                    Se menea, se menea<br>
+                    Se menea, se menea<br>
+                    Se menea, se menea<br>
+                    Se menea<br>
+
+                </p>
+                <div style="text-align: center;">
+                    <video src="../images/Se Menea.mp4" width="640" height="480" controls ></video>
+                </div>
+                
+                
+            </div>
+        </section>
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; AXOCLOTHES 2023</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+
+
+
+        <a href="https://www.instagram.com/axo.clothes/" class="float">
+            <img class="img-w" src="../images/wasac.png">
+        </a>
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
