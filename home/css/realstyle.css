@@ -1,0 +1,125 @@
+/* Estilos para el menú */
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilos para los elementos de la lista */
+.menu li {
+    display: inline-block;
+    margin-right: 20px; /* Espacio entre elementos */
+}
+
+/* Estilos para los enlaces */
+.menu li a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición al pasar el cursor */
+}
+
+/* Estilos para los enlaces al pasar el cursor */
+.menu li a:hover {
+    background-color: #ddd;
+}
+
+/* Estilos para el menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilo para el botón principal */
+.dropbtn {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición al pasar el cursor */
+}
+
+/* Estilo para el contenido desplegable */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Estilo para los enlaces del contenido desplegable */
+.dropdown-content a {
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Mostrar el contenido desplegable al pasar el cursor sobre el botón principal */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+
+/* Estilos para la opción desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilo para el botón principal */
+.dropbtn {
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Estilo para el contenido desplegable */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    z-index: 1;
+}
+
+/* Estilo para los enlaces del contenido desplegable */
+.dropdown-content a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Mostrar el contenido desplegable al pasar el cursor sobre el botón principal */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.texto-centrado-top {
+    text-align: center !important;
+  }
+
+  .texto-centrado-mid{
+    text-align: center !important;
+  }
+
+.formato1{
+    color: #ffffff;
+    font-size: 40pt;
+}
+
+.formato2{
+    font-size: 20pt;
+    color: #aaaaaa;
+}
+
+.headercontenedor{
+    height: 25vh;
+}
+
