@@ -123,3 +123,26 @@
     height: 25vh;
 }
 
+
+/*Estilo para las secciones*/
+
+#general-section{
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+#general-container{
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
+    margin-top: 3rem !important;
+}
+
+.cotenedor-interno{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tarjeta{
+    margin: 10px;
+}
