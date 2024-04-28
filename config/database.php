@@ -1,10 +1,9 @@
 <?php
-
 class Database {
     private $hostname = "localhost";
     private $database = "axoclothes";
     private $username = "root";
-    private $password = "";
+    private $password = "1234";
     private $charset = "utf8";
 
     function conectar()
@@ -12,7 +11,7 @@ class Database {
         try{
         $conexion = "mysql:host=" . $this->hostname . "; dbname=" . $this->database . "; charset=" . $this->charset;
         $options = [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTIOM,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_EMULATE_PREPARES => false
         ];
 
@@ -20,11 +19,9 @@ class Database {
 
         return $pdo; 
         }catch(PDOExeption $e){
-         echo 'Error conexion: ' $e->getMessage();
+         echo 'Error conexion: ' . $e->getMessage();
          exit;
         }
     }
 }
-
-
 ?>
