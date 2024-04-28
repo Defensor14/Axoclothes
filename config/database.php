@@ -1,0 +1,30 @@
+<?php
+
+class Database {
+    private $hostname = "localhost";
+    private $database = "axoclothes";
+    private $username = "root";
+    private $password = "";
+    private $charset = "utf8";
+
+    function conectar()
+    {   
+        try{
+        $conexion = "mysql:host=" . $this->hostname . "; dbname=" . $this->database . "; charset=" . $this->charset;
+        $options = [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTIOM,
+            PDO::ATTR_EMULATE_PREPARES => false
+        ];
+
+        $pdo = new PDO($conexion, $this->username, $this->password, $options);
+
+        return $pdo; 
+        }catch(PDOExeption $e){
+         echo 'Error conexion: ' $e->getMessage();
+         exit;
+        }
+    }
+}
+
+
+?>
