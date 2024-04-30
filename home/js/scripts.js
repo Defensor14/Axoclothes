@@ -19,6 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
         contenedorTarjetas.appendChild(nuevaTarjeta);
     });
 
-    // Muestra la tarjeta base después de agregar las tarjetas dinámicas
-    tarjetaBase.style.display = "none";
+    // Muestra la tarjeta base después de agregar las tarjetas dinámicas    tarjetaBase.style.display = "none";
+    
 });

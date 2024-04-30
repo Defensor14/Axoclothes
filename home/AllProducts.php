@@ -34,7 +34,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     <!-- Navigation-->
     <nav class="navbar">
         <div id="logo">
-            <img src="../images/logo.svg" style="width: 30px; margin: 5px;">
+            <img src="images/logo.svg" style="width: 30px; margin: 5px;">
         </div>
         <a class="navbar-marca" href="index.html">AXOCLOTHES</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -46,7 +46,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Comprar</a>
                     <div class="dropdown-content">
-                        <a href="AllProducts.html">Todos los productos</a>
+                        <a href="AllProducts.php">Todos los productos</a>
                         <a href="#vision">Tendencias</a>
                         <a href="#valores">Nuevo</a>
                     </div>
@@ -78,24 +78,33 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
             <div class="cotenedor-interno"
                 id="contenedor_tarjetas">
                 <!-- CARD-->
-                <div class="tarjeta" id="tarjeta-base" style="display: none;">
+                <?php  foreach($resultado as $row) { ?>
+                <div class="tarjeta" id="tarjeta-base">
                     <a class="linkitems" href="../item/index.html">
                         <div class="card h-100">
+                        <?php 
+
+                        $id = $row['id'];
+                        $imagen = "images/$id/product1.jpg";
+                        if(!file_exists($imagen)){
+                            $imagen = "images/no-photo.jpg";
+                        }
+                        ?>
                             <!-- Product image-->
                             <figure class="zoom" style="background-image: url(../images/product\ 01.jpg)"
                                 onmousemove="zoom(event)">
                                 <!-- Descuento-->
                                 <div class="badge bg-dark text-white position-absolute top-0 end-0 mt-1 me-1"></div>
-                                <img class="card-img-top zoom" src="/images/product 01.jpg" alt="..." />
+                                <img class="card-img-top zoom" src="<?php echo $imagen;?>" alt="..." />
                             </figure>
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder" id="titulo">----</h5>
+                                    <h5 class="fw-bolder" id="titulo"><?php echo $row['nombre'];?></h5>
                                     <p id="tipo">----</p>
                                     <!-- Product price-->
-                                    <span id="precio">$000</span>
+                                    <span id="precio"><?php echo number_format($row['precio'],2,'.',',');?></span>
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -106,6 +115,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                         </div>
                     </a>
                 </div>
+                <?php } ?>
                 <!-- End CARD-->
 
             </div>
@@ -120,13 +130,13 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script type="text/javascript" src="js/scripts.js"></script>
-    <script type="text/javascript" src="js/bd_stock.js"></script>
+    <!-- <script type="text/javascript" src="js/scripts.js"></script>
+   <script type="text/javascript" src="js/bd_stock.js"></script> -->
     <script src="js/zoom.js"></script>
 
     <!-- Instagram icon -->
     <a href="https://www.instagram.com/axo.clothes/" class="float">
-        <img class="img-w" src="../images/wasac.png">
+        <img class="img-w" src="images/wasac.png">
     </a>
 
 </body>
