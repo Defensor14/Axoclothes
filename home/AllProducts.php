@@ -4,7 +4,7 @@ require '../config/database.php';
 $db = new Database();
 $con = $db->conectar();
 
-$sql = $con->prepare("SELECT id, nombre, precio FROM productos WHERE activo=1");
+$sql = $con->prepare("SELECT id, nombre, price FROM producto WHERE activo=1");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -85,14 +85,12 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <?php 
 
                         $id = $row['id'];
-                        $imagen = "images/$id/product1.jpg";
+                        $imagen = "images/$id/product.jpg";
                         if(!file_exists($imagen)){
                             $imagen = "images/no-photo.jpg";
                         }
                         ?>
                             <!-- Product image-->
-                            <figure class="zoom" style="background-image: url(../images/product\ 01.jpg)"
-                                onmousemove="zoom(event)">
                                 <!-- Descuento-->
                                 <div class="badge bg-dark text-white position-absolute top-0 end-0 mt-1 me-1"></div>
                                 <img class="card-img-top zoom" src="<?php echo $imagen;?>" alt="..." />
@@ -104,7 +102,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                                     <h5 class="fw-bolder" id="titulo"><?php echo $row['nombre'];?></h5>
                                     <p id="tipo">----</p>
                                     <!-- Product price-->
-                                    <span id="precio"><?php echo number_format($row['precio'],2,'.',',');?></span>
+                                    <span id="precio"><?php echo number_format($row['price'],2,'.',',');?></span>
                                 </div>
                             </div>
                             <!-- Product actions-->
