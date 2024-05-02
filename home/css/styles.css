@@ -7842,26 +7842,6 @@ textarea.form-control-lg {
   background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
 }
 
-
-.headercontenedor {
-
-  background-image: url(../Comp\ 1.gif);
-  background-repeat: repeat;
-  background-size: contain;
-}
-
-.headercontenedor2 {
-
-  position: static;
-  background-image: url(../Comp\ 1.gif);
-  width: 100%;
-  min-height: 1500px;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-y: top ;
-}
-
 .bg-dark {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
