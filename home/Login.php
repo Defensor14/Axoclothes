@@ -4,7 +4,7 @@ require '../config/database.php';
 $db = new Database();
 $con = $db->conectar();
 
-$sql = $con->prepare("SELECT nombre, apellido, email, password, rol FROM user");
+$sql = $con->prepare("SELECT nombre, apellido, email, password FROM user");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -79,15 +79,15 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
  <!------------- REGISTRO --------------->
     <div class="register-container">
             <h2 class="titulos">Crea tu cuenta</h2>
-            <form id="register-form">
+            <form id="register-form" action="../config/crearCuenta.php" method="post">
                 <label  class="formulario" for="firstName">Nombre:</label>
-                <input class="formulario" type="text" id="firstName" name="firstName" required> 
+                <input class="formulario-input" type="text" id="firstName" name="nombre" required> 
                 <label class="formulario" for="lastName">Apellido:</label>
-                <input class="formulario" type="text" id="lastName" name="lastName" required> 
+                <input class="formulario-input" type="text" id="lastName" name="apellido" required> 
                 <label class="formulario" for="email">Correo Electrónico:</label>
-                <input class="formulario" type="email" id="email" name="email" required> 
+                <input class="formulario-input" type="email" id="email" name="email" required> 
                 <label class="formulario" for="password">Contraseña:</label>
-                <input class="formulario" type="password" id="password" name="password" required> <br>
+                <input class="formulario-input" type="password" id="password" name="password" required> <br>
 
                 <select name="pais" id="pais" required>
                     <option value="">Selecciona tu país</option> 
@@ -99,9 +99,9 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                 </select>
 
                 <label class="formulario" for="address">Dirección:</label>
-                <input class="formulario" type="text" id="address" name="address" required> 
+                <input class="formulario-input" type="text" id="address" name="address" required> 
                 <label class="formulario" for="telefono">Teléfono:</label>
-                <input class="formulario" type="text" id="telefono" name="telefono" required>
+                <input class="formulario-input" type="text" id="telefono" name="telefono" required>
                 <button class="btn_formulario" type="submit">Crear Cuenta</button>
             </form>
             <p id="error-message"></p>
@@ -121,6 +121,8 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     </footer>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- CREAR CUENTA CON JAVASCRIPT
+        script src="js/javaCrearCuenta.js"></script-->
     <!-- Core theme JS-->
     <!-- <script type="text/javascript" src="js/scripts.js"></script>
    <script type="text/javascript" src="js/bd_stock.js"></script> -->
@@ -133,6 +135,6 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 </body>
 
-<script src="js/javaCrearCuenta.js"></script>
+
 
 </html>

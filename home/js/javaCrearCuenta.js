@@ -3,10 +3,7 @@ function formulario() {
     const registerForm = document.getElementById("register-form");
     const errorMessage = document.getElementById("error-message");
 
-        console.log("ola")
-
     registerForm.addEventListener("submit", function(event) {
-        console.log("ola")
 
         event.preventDefault();
 
@@ -19,7 +16,8 @@ function formulario() {
         const telefono = registerForm.elements["telefono"].value;
 
         // Validación básica
-        if (firstName.trim() === "" || lastName.trim() === "" || email.trim() === "" || password.trim() === "" || pais.trim() === "" || address.trim() === "" || telefono.trim() === ""  ) {
+        if (firstName === "" || lastName === "" || email === "" || password === "" || pais === "" || address === "" || telefono === ""  ) {
+            console.log("ola")
             errorMessage.textContent = "Por favor, completa todos los campos.";
         } else {
             // Verificar si el nombre de usuario ya está registrado
@@ -39,7 +37,7 @@ function formulario() {
                 localStorage.setItem(email, JSON.stringify(userData)); // Almacenar los datos de usuario en JSON
                 
                 // Redirigir al usuario a la página de inicio de sesión
-                window.location.href = "index.html";
+                window.location.href = "AllProducts.php";
             }
         }
     });
@@ -63,7 +61,7 @@ function showConfirmationModal() {
     const continueButton = document.createElement("button");
     continueButton.textContent = "Continuar";
     continueButton.addEventListener("click", function() {
-        window.location.href = "IndexCrearDibujo.html";
+        window.location.href = "AllProducts.php";
     });
 
     // Agregar elementos al DOM
