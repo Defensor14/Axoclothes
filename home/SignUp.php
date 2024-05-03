@@ -4,7 +4,7 @@ require '../config/database.php';
 $db = new Database();
 $con = $db->conectar();
 
-$sql = $con->prepare("SELECT email, password FROM user");
+$sql = $con->prepare("SELECT nombre, apellido, email, password FROM user");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -76,17 +76,33 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </header>
 
- <!------------- INICIAR SESIÓN --------------->
+ <!------------- REGISTRO --------------->
     <div class="register-container">
-            <h2 class="titulos">Iniciar sesión</h2>
-            <form id="register-form" action="../config/IniciarSesion.php" method="post">
-                <label class="formulario" for="email">Email:</label>
-                <input class="formulario-input" type="email" id="email" name="email" required>
+            <h2 class="titulos">Crea tu cuenta</h2>
+            <form id="register-form" action="../config/crearCuenta.php" method="post">
+                <label  class="formulario" for="firstName">Nombre:</label>
+                <input class="formulario-input" type="text" id="firstName" name="nombre" required> 
+                <label class="formulario" for="lastName">Apellido:</label>
+                <input class="formulario-input" type="text" id="lastName" name="apellido" required> 
+                <label class="formulario" for="email">Correo Electrónico:</label>
+                <input class="formulario-input" type="email" id="email" name="email" required> 
                 <label class="formulario" for="password">Contraseña:</label>
-                <input class="formulario-input" type="password" id="password" name="password" required>
+                <input class="formulario-input" type="password" id="password" name="password" required> <br>
 
-                <button class="btn_formulario" type="submit">Iniciar sesión</button>
-                <p class="signup-link">¿Aún no tienes cuenta? <a href=".php">Regístrate aquí</a></p>
+                <select name="pais" id="pais" required>
+                    <option value="">Selecciona tu país</option> 
+                    <option value="Mexico">México</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Chile">Chile</option>
+                </select>
+
+                <label class="formulario" for="address">Dirección:</label>
+                <input class="formulario-input" type="text" id="address" name="address" required> 
+                <label class="formulario" for="telefono">Teléfono:</label>
+                <input class="formulario-input" type="text" id="telefono" name="telefono" required>
+                <button class="btn_formulario" type="submit">Crear Cuenta</button>
             </form>
             <p id="error-message"></p>
     </div>

@@ -37,6 +37,8 @@ if ($conn->query($sql1) === TRUE) {
 
     if ($conn->query($sql2) === TRUE) {
         echo "Registro exitoso";
+        header("Location: ../home/Login.php");
+        exit;
     } else {
         echo "Error al insertar datos en la tabla 'inter_cliente': " . $conn->error;
     }
