@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>AXOCLOTHES</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!--Archivos CSS-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/realstyle.css">
+
+</head>
+
+<!-----------------------------------------------------------------BODY--------------------------------------------------------------------->
+
+<!----------------------------------------------------------NAVBAR------------------------------------------------------------------->
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <div id="logo">
+                <img src="images/logo.svg" style="width: 30px; margin: 5px;">
+            </div>
+            <a class="navbar-brand" href="index.html">AXOCLOTHES</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Comprar</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="AllProducts.html">Todos los productos</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" href="Trend.html">Tendencias</a></li>
+                            <li><a class="dropdown-item" href="New.html">¡NUEVO!</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#!">Sobre nosotros</a></li>
+                </ul>
+                <form class="d-flex">
+                    <button class="btn btn-outline-dark" type="submit">
+                        <i class="bi-cart-fill me-1"></i>
+                        Carrito
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+<!----------------------------------------------------------HEADER--------------------------------------------------------------------->
+
+<header class="headercontenedor">
+    <a href="AllProducts.html" class="center">
+        <img src="Images/parallax2-1.png" alt="Advertisement" style="width:800px;height:auto;">
+    </a>
+    <div class="split-container">
+        <a href="AllProducts.html" class="left">
+            <img src="Images/2-3.png" alt="Advertisement" style="width:300px;height:auto;">
+        </a>
+        <a href="AllProducts.html" class="right">
+            <img src="Images/2-3.png" alt="Advertisement" style="width:300px;height:auto;">
+        </a>
+    </div>
+</header>
+
+<!----------------------------------------------------------SECTION--------------------------------------------------------------------->
+
+    <section class="#general-section">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+                id="contenedor_tarjetas">
+                <!------------------------CARD-------------------------->
+                <div class="col mb-5" id="tarjeta-base">
+                    <a class="linkitems" href="../item/index.html">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <figure class="zoom" style="background-image: url(images/product\ 05.jpg)"
+                                onmousemove=zoom(event)>
+                                <!-- Sale badge-->
+                                <div class="badge bg-dark text-white position-absolute"
+                                    style="top: 0.5rem; right: 0.5rem">-20%</div>
+                                <img class="card-img-top" src="images/product 01.jpg" alt="..." />
+                            </figure>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder" id="titulo">Blue Dreams</h5>
+                                    <p id="tipo">Jersey</p>
+                                    <!-- Product price-->
+                                    <span id="precio">$200.00</span>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto"
+                                        href="stock/Blue_Dreams.html">Ver más</a></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!----------------------------------------------------------FOOTER--------------------------------------------------------------------->
+
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <ul class="footer-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="AllProducts.html">Comprar</a></li>
+                <li><a href="New.html">Nuevo</a></li>
+                <li><a href="Trend.html">Tendencia</a></li>
+                <li><a href="AboutUs.html">Sobre Nosotros</a></li>
+            </ul>
+            <p class="m-0 text-center text-white">© Copyright 2023 - 2024 Axoclothes Inc. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!-- Core theme JS-->
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="js/bd_stock.js"></script>
+    <script src="js/zoom.js"></script>
+
+    <!-- Instagram icon -->
+    <a href="https://www.instagram.com/axo.clothes/" class="float">
+        <img class="img-w" src="images/wasac.png">
+    </a>
+</body>
+
+</html>

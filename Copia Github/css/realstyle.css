@@ -11,18 +11,6 @@
     margin-right: 20px; /* Espacio entre elementos */
 }
 
-.navbar-marca{
-    text-decoration: none;
-    font-size: 18pt;
-    color: #000;
-}
-
-.navbar-marca:hover{
-    text-decoration: none;
-    font-size: 18pt;
-    color: #000;
-}
-
 /* Estilos para los enlaces */
 .menu li a {
     color: #333;
@@ -122,7 +110,7 @@
   }
 
 .formato1{
-    color: #ffffff;
+    color: #ca2323;
     font-size: 40pt;
 }
 
@@ -131,12 +119,30 @@
     color: #aaaaaa;
 }
 
-.headercontenedor{
-    height: 25vh;
+/*-------------------------------------------------------------------------------HEADER------------------------------------------------------*/
+
+.headercontenedor {
+    height: 500px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.split-container {
+    display: flex;
+}
 
-/*Estilo para las secciones*/
+.left {
+    margin-right: 10px; /* Adjust spacing between the images */
+}
+
+.right {
+    margin-left: 10px; /* Adjust spacing between the images */
+}
+
+/*-------------------------------------------------------------------------------SECTION------------------------------------------------------*/
 
 #general-section{
     padding-top: 3rem !important;
@@ -159,117 +165,31 @@
     margin: 10px;
 }
 
+/*--------------------------------------------------------------------------------------------FOOTER-MENU----------------------------*/
 
-/*-------------------------------------------------*/
-/*---------------------HEADER----------------------*/
-
-
-
-.headercontenedor {
-
-    background-image: url(../Comp\ 1.gif);
-    background-repeat: repeat;
-    background-size: contain;
-    min-height: 300px;
-  }
-  
-  .headercontenedor2 {
-  
-    position: static;
-    background-image: url(../Comp\ 1.gif);
-    width: 100%;
-    min-height: 1500px;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-y: top ;
-  }
-
-
-
-
-/*-------------------------------------------------*/
-/*--------------------REGISTRO---------------------*/
-.register-container {
-    width: 80%;
-    max-width: 600px; /* Ancho máximo para evitar que el formulario sea demasiado ancho en pantallas grandes */
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 30px;
-    background-color: #222222; /* Fondo del formulario */
-    border-radius: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-}
-
-.formulario{
-    color: #ffffff;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.formulario-input{
-    color: #000000;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.titulos{
-    color: #ffffff
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid #ffe7e7;
-}
-
-.btn_formulario {
-    width: 30%;
-    padding: 12px;
-    background-color: #ff004c;
-    color: #fff;
-    border-radius: 70px;
-    cursor: pointer;
-    margin-top: 5%;
-    margin-left: auto;
-    margin-right: auto;
-    transition: background-color 0.2s ease; /* Transición suave al pasar el cursor sobre el botón */
-    display: block; /* Asegura que el botón ocupe todo el ancho disponible */
-}
-
-.btn_formulario:hover {
-    color: #ff004c;
-    background-color: #ffffff; /* Cambio de color al pasar el cursor sobre el botón */
-}
-
-#error-message {
-    color: red;
-    margin-top: 10px;
-}
-
-
-/*-------------------------------------------------*/
-/*---------------INICIO DE SESIÓN------------------*/
-
-
-
-.signup-link {
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     text-align: center;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    color: #fff;
 }
 
-.signup-link a {
-    color: #ff004c;
+.footer-menu li {
+    display: inline-block;
+    margin-right: 20px; /* Adjust as needed */
+}
+
+.footer-menu li:last-child {
+    margin-right: 0;
+}
+
+.footer-menu li a {
+    color: #ffffff; /* Text color */
     text-decoration: none;
+    font-size: 16px; /* Adjust as needed */
+    font-weight: bold; /* Make the text bold */
 }
 
-.signup-link a:hover {
-    text-decoration: underline;
+.footer-menu li a:hover {
+    color: #cccccc; /* Text color on hover */
 }
