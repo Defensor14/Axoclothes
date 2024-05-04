@@ -86,7 +86,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                 <input class="formulario-input" type="password" id="password" name="password" required>
 
                 <button class="btn_formulario" type="submit">Iniciar sesión</button>
-                <p class="signup-link">¿Aún no tienes cuenta? <a href=".php">Regístrate aquí</a></p>
+                <p class="signup-link">¿Aún no tienes cuenta? <a href="SignUp.php">Regístrate aquí</a></p>
             </form>
             <p id="error-message"></p>
     </div>
