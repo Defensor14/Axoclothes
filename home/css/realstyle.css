@@ -11,6 +11,18 @@
     margin-right: 20px; /* Espacio entre elementos */
 }
 
+.navbar-marca{
+    text-decoration: none;
+    font-size: 18pt;
+    color: #000;
+}
+
+.navbar-marca:hover{
+    text-decoration: none;
+    font-size: 18pt;
+    color: #000;
+}
+
 /* Estilos para los enlaces */
 .menu li a {
     color: #333;
