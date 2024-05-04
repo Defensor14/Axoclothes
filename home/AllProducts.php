@@ -42,15 +42,6 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
             aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             
             <ul class="menu">
-                
-            <li class="dropdown">
-                    <a href="#" class="dropbtn">Usuario</a>
-                    <div class="dropdown-content">
-                        <a href="Login.php">Inicia sesion</a>
-                        <a href="SignUp.php">Crear cuenta</a>
-                    </div>
-                </li>
-
                 <li><a href="index.html">Inicio</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Comprar</a>

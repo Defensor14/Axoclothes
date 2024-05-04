@@ -28,6 +28,10 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     <link href="css/realstyle.css" rel="stylesheet"/>
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/theme.css" rel="stylesheet" />
+
+
+    
+
 </head>
 
 <body>
@@ -103,6 +107,12 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
             <p id="error-message"></p>
     </div>
 
+
+
+
+
+
+    
     <!-- Footer-->
     <footer class="py-5 bg-dark">
         <div class="container">
