@@ -31,8 +31,9 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="css/realstyle.css">
 </head>
 
+
 <body>
-    <!-- Navigation-->
+    <!-- Navigationsolo es una prueba-->
     <nav class="navbar">
         <div id="logo">
             <img src="images/logo.svg" style="width: 30px; margin: 5px;">
