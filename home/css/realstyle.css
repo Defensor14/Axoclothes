@@ -255,3 +255,128 @@ input {
 .signup-link a:hover {
     text-decoration: underline;
 }
+
+/*-------------------------------------------------*/
+/*--------------------NAVBAR-----------------------*/
+
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .navbar-brand {
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+  .navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .navbar-nav .dropdown-menu {
+    position: static;
+  }
+  
+  .navbar-text {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+  }
+  
+
+
+.navbar > .container,
+.navbar > .container-fluid,
+.navbar > .container-sm,
+.navbar > .container-md,
+.navbar > .container-lg,
+.navbar > .container-xl,
+.navbar > .container-xxl {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#logo img{
+    width: 40px; 
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.menu{
+    margin-left: 5%;
+}
+
+
+.navbar-brand{
+    text-decoration: none;
+    color: #000000;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+    transition: 150ms;
+  }
+  a:hover {
+    color: #ff006a;
+  }
+  
+  a:not([href]):not([class]), a:not([href]):not([class]):hover {
+    color: inherit;
+    text-decoration: none;
+  }
+
+
+
+/*-------------------------------------------------*/
+/*--------------------INDEX-----------------------*/
+.interfaz-index{
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    margin: 5%;
+}
+
+.caja{
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.contenedor-index1{
+    width: 29%;
+    height: 200px;
+    background-color: #ff004c;
+  }
+
+  .contenedor-index2{
+    width: 70%;
+    height: 200px;
+    background-color: #ffa200;
+  }
+
+  .contenedor-index3{
+    width: 100%;
+    height: 200px;
+    background-color: #6f00ff;
+  }
