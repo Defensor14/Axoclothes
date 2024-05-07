@@ -1,7 +1,7 @@
 <?php
 // Establece la conexión con la base de datos
     $hostname = "localhost:3307";
-    $database = "axoclothes 1";
+    $database = "axoclothes";
     $username = "root";
     $password = "";
     $charset = "utf8";

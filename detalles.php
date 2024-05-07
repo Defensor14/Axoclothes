@@ -117,7 +117,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto"
-                                        href="detalles.php">Ver más</a></div>
+                                        href="stock/Blue_Dreams.html">Ver más</a></div>
                             </div>
                         </div>
                     </a>
