@@ -22,7 +22,7 @@
 <body>
     <nav class="navbar">
         <div id="logo">
-            <img src="../images/logo.svg" style="width: 30px; margin: 5px;">
+            <img src="images/logo.svg" style="width: 30px; margin: 5px;">
         </div>
         <a class="navbar-marca" href="index.html">AXOCLOTHES</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -40,6 +40,13 @@
                     </div>
                 </li>
                 <li><a href="#contacto">Sobre nosotros</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Usuarios</a>
+                    <div class="dropdown-content">
+                        <a href="SignUp.php">Crear cuenta</a>
+                        <a href="Login.php">Iniciar sesion</a>
+                    </div>
+                </li>
             </ul>
         <form class="d-flex">
             <button class="btn-carrioto" type="submit">
@@ -51,52 +58,18 @@
     </nav>
 
     <!-- Header-->
-    <header class="headercontenedor">
-        <div class="container">
-            <div class="texto-centrado-mid">
-                <h1 class="formato1">Estilo a tu alcance</h1>
-                <p class="formato2">Calidad, precio y maravillosas experiencias</p>
+    <header class="headercontenedor py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Estilo a tu alcance</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Calidad, precio y maravillosas experiencias</p>
             </div>
         </div>
     </header>
     
     <!-- Section-->
     <section class="py-5">
-        <div class="container px-4 px-lg-5 mt-5">
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
-                id="contenedor_tarjetas">
-                <!------------------------CARD-------------------------->
-                <div class="col mb-5" id="tarjeta-base">
-                    <a class="linkitems" href="../item/index.html">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <figure class="zoom" style="background-image: url(../images/product\ 01.jpg)"
-                                onmousemove=zoom(event)>
-                                <!-- Sale badge-->
-                                <div class="badge bg-dark text-white position-absolute"
-                                    style="top: 0.5rem; right: 0.5rem">-20%</div>
-                                <img class="card-img-top" src="../images/product 01.jpg" alt="..." />
-                            </figure>
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder" id="titulo">Blue Dreams</h5>
-                                    <p id="tipo">Jersey</p>
-                                    <!-- Product price-->
-                                    <span id="precio">$200.00</span>
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto"
-                                        href="stock/Blue_Dreams.html">Ver más</a></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
+       
     </section>
     <!-- Footer-->
     <footer class="py-5 bg-dark">
@@ -113,7 +86,7 @@
 
     <!-- Instagram icon -->
     <a href="https://www.instagram.com/axo.clothes/" class="float">
-        <img class="img-w" src="../images/wasac.png">
+        <img class="img-w" src="images/wasac.png">
     </a>
 </body>
 

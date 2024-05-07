@@ -4028,6 +4028,7 @@ textarea.form-control-lg {
 }
 
 .navbar {
+  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
   position: relative;
   display: flex;
   flex-wrap: wrap;

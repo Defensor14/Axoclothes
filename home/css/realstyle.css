@@ -101,29 +101,6 @@
     display: block;
 }
 
-.texto-centrado-top {
-    text-align: center !important;
-  }
-
-  .texto-centrado-mid{
-    text-align: center !important;
-  }
-
-.formato1{
-    color: #ffffff;
-    font-size: 40pt;
-}
-
-.formato2{
-    font-size: 20pt;
-    color: #aaaaaa;
-}
-
-.headercontenedor{
-    height: 25vh;
-}
-
-
 /*Estilo para las secciones*/
 
 #general-section{
@@ -158,7 +135,7 @@
     background-image: url(../Comp\ 1.gif);
     background-repeat: repeat;
     background-size: contain;
-    min-height: 300px;
+    height: 40vh;
   }
   
   .headercontenedor2 {
@@ -172,7 +149,24 @@
     background-size: cover;
     background-position-y: top ;
   }
+  .texto-centrado-top {
+    text-align: center !important;
+  }
 
+  .texto-centrado-mid{
+    margin: 30%;
+    text-align: center !important;
+  }
+
+.formato1{
+    color: #ffffff;
+    font-size: 40pt;
+}
+
+.formato2{
+    font-size: 20pt;
+    color: #aaaaaa;
+}
 
 
 

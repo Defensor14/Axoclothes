@@ -44,6 +44,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
             
             <ul class="menu">
                 <li><a href="index.html">Inicio</a></li>
+
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Comprar</a>
                     <div class="dropdown-content">
@@ -52,7 +53,17 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <a href="#valores">Nuevo</a>
                     </div>
                 </li>
+
                 <li><a href="#contacto">Sobre nosotros</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Usuarios</a>
+                    <div class="dropdown-content">
+                        <a href="SignUp.php">Crear cuenta</a>
+                        <a href="Login.php">Iniciar sesion</a>
+                    </div>
+                </li>
+                
             </ul>
         <form class="d-flex">
             <button class="btn-carrioto" type="submit">
