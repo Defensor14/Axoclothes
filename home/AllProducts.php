@@ -1,5 +1,6 @@
 <?php
 
+require '../config/config.php';
 require '../config/database.php';
 $db = new Database();
 $con = $db->conectar();
@@ -117,7 +118,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto"
-                                        href="detalles.php">Ver más</a></div>
+                                        href="detalles.php?id=<?php echo $row['id'];?>&token=<?php echo hash_hmac('sha1', $row['id'], KEY_TOKEN);?>">Ver más</a></div>
                             </div>
                         </div>
                     </a>

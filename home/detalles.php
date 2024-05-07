@@ -1,12 +1,58 @@
 <?php
 
+require '../config/config.php';
 require '../config/database.php';
 $db = new Database();
 $con = $db->conectar();
 
-$sql = $con->prepare("SELECT id, nombre, price FROM producto WHERE activo=1");
-$sql->execute();
-$resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+$id = isset($_GET['id']) ? $_GET['id'] : '';
+$token = isset($_GET['token']) ? $_GET['token'] : '';
+
+if($id == '' || $token == ''){
+    echo 'Error al procesar la petición';
+    exit;
+} else {
+
+    $token_tmp = hash_hmac('sha1', $id, KEY_TOKEN);
+    if($token == $token_tmp){
+
+        $sql = $con->prepare("SELECT count(id) FROM producto WHERE id=? AND activo=1");
+        $sql->execute([$id]);
+        if($sql -> fetchColumn() > 0 ){
+
+            $sql = $con->prepare("SELECT nombre, descripcion, price, descuento FROM producto WHERE id=? AND activo=1 LIMIT 1");
+            $sql->execute([$id]);
+            $row = $sql-> fetch(PDO::FETCH_ASSOC);
+            $nombre = $row['nombre'];
+            $descripcion = $row['descripcion'];
+            $precio = $row['price'];
+            $descuento = $row['descuento'];
+            $precio_desc = $precio - (($precio * $descuento)/100);
+            $dir_images = 'images/'.$id.'/product.jpg';
+
+            // $rutaImg = $dir_images . 'principal.jpg';
+
+            // if(!file_exists($rutaImg)){
+            //     $rutaImg = 'images/no-photo.jpg';
+            // }
+
+            // $imagenes = array();
+            // $dir = dir($dir_images);
+
+            // while(($archivo = $dir->read()) != false){
+            //     if($archivo != 'principal.jpg' && (strpos($archivo, 'jpg') || strpos($archivo, 'jpeg'))){
+            //         $imagenes[] = $dir_images . $archivo;
+            //     }
+            // }
+            // $dir->close();
+        }
+        
+    }else {
+        echo 'Error al procesar la petición';
+        exit;
+    }
+}
+
 
 ?>
 
@@ -83,51 +129,39 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
     <!-- Section-->
     <section id="general-section">
-        <div id="general-container">
-            <div class="cotenedor-interno"
-                id="contenedor_tarjetas">
-                <!-- CARD-->
-                <?php  foreach($resultado as $row) { ?>
-                <div class="tarjeta" id="tarjeta-base">
-                    <a class="linkitems" href="../item/index.html">
-                        <div class="card h-100">
-                        <?php 
+       <div class="row">
+        <div class="col-md-6 order-md-1">
+            <img src="<?php echo $dir_images ?>">
+        </div>
+        <div class="col-md-6 order-md-2">
+            <h2><?php echo $nombre?></h2>
 
-                        $id = $row['id'];
-                        $imagen = "images/$id/product.jpg";
-                        if(!file_exists($imagen)){
-                            $imagen = "images/no-photo.jpg";
-                        }
-                        ?>
-                            <!-- Product image-->
-                                <!-- Descuento-->
-                                <div class="badge bg-dark text-white position-absolute top-0 end-0 mt-1 me-1"></div>
-                                <img class="card-img-top zoom" src="<?php echo $imagen;?>" alt="..." />
-                            </figure>
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder" id="titulo"><?php echo $row['nombre'];?></h5>
-                                    <p id="tipo">----</p>
-                                    <!-- Product price-->
-                                    <span id="precio"><?php echo number_format($row['price'],2,'.',',');?></span>
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto"
-                                        href="stock/Blue_Dreams.html">Ver más</a></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <?php } ?>
-                <!-- End CARD-->
+            <?php if($descuento > 0){ ?>
+            <p><del><?php echo MONEDA . number_format($precio, 2, '.', ',');?></del></p>
+            <h2>
+                <?php echo MONEDA . number_format($precio_desc, 2, '.', ',');?>
+                <small clas="text-success"><?php echo $descuento; ?>% descuento</small>
+            </h2>
 
+            <?php } else { ?>
+
+
+            <h2><?php echo MONEDA . number_format($precio, 2, '.', ',');?></h2>
+
+            <?php } ?>
+
+            <p class="Info">
+                <?php echo $descripcion ?>
+            </p>
+
+            <div class="Cont-btn"> 
+                <button class="btn-primary" type="buttom">Comprar Ahora</button>
+                <button class="btn-outline-primary" type="buttom">Agregar al carrito</button>
             </div>
         </div>
+       </div>
     </section>
+
     <!-- Footer-->
     <footer class="py-5 bg-dark">
         <div class="container">
