@@ -1,25 +1,31 @@
 <?php
 $servername = "localhost:3307";
-$username = "root"; // Cambia esto por tu nombre de usuario de la base de datos
-$password = ""; // Cambia esto por tu contraseña de la base de datos
-$dbname = "axoclothes"; // Cambia esto por el nombre de tu base de datos
+$username = "root";
+$password = "";
+$dbname = "axoclothes";
+
+// Crear una conexión a la base de datos
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar si la conexión es exitosa
+if ($conn->connect_error) {
+    die("Error de conexión: " . $conn->connect_error);
+}
 
 // Operación de Crear
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['crear'])) {
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
+    $id = $_POST['id'];
     $nombre = $_POST['nombre'];
     $descripcion = $_POST['descripcion'];
-    $talla = $_POST['talla'];
-    $precio = $_POST['precio'];
+    $price = $_POST['price'];
+    $descuento = $_POST['descuento'];
+    $stock = $_POST['stock'];
+    $fecha_entrada = $_POST['fecha_entrada'];
+    $id_proveedor = $_POST['id_proveedor'];
+    $id_almacen = $_POST['id_almacen'];
+    $activo = $_POST['activo'];
 
-    // Obtener la ruta de la imagen y subirla al servidor
-    $imagen = $_FILES['imagen']['name'];
-    $imagen_temp = $_FILES['imagen']['tmp_name'];
-    $imagen_destino = "uploads/" . $imagen;
-    move_uploaded_file($imagen_temp, $imagen_destino);
-
-    $sql = "INSERT INTO inventario (nombre, descripcion, talla, precio, imagen) VALUES ('$nombre', '$descripcion', '$talla', '$precio', '$imagen_destino')";
+    $sql = "INSERT INTO producto (id, nombre, descripcion, price, descuento, stock, fecha_entrada, id_proveedor, id_almacen, activo) VALUES ('$id', '$nombre', '$descripcion', '$price', '$descuento', '$stock', '$fecha_entreda', '$id_proveedor', '$id_almacen', '$activo')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Producto insertado correctamente";
@@ -29,25 +35,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['crear'])) {
 }
 
 // Operación de Leer
-$conn = new mysqli($servername, $username, $password, $dbname);
-$sql = "SELECT * FROM inventario";
+$sql = "SELECT * FROM producto";
 $result = $conn->query($sql);
 
 // Operación de Editar
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['editar'])) {
     $nombre = $_POST['nombre'];
     $descripcion = $_POST['descripcion'];
-    $talla = $_POST['talla'];
-    $precio = $_POST['precio'];
+    $price = $_POST['price'];
+    $descuento = $_POST['descuento'];
+    $stock = $_POST['stock'];
+    $fecha_entrada = $_POST['fecha_entrada'];
+    $id_proveedor = $_POST['id_proveedor'];
+    $id_almacen = $_POST['id_almacen'];
+    $activo = $_POST['activo'];
 
     // Preparar la consulta SQL con parámetros
-    $sql = "UPDATE inventario SET descripcion=?, talla=?, precio=? WHERE nombre=?";
+    $sql = "UPDATE producto SET descripcion=?, price=?, descuento=?, stock=?, fecha_entrada=?, id_proveedor=?, id_almacen=?, activo=? WHERE nombre=?";
 
     // Preparar la sentencia
     $stmt = $conn->prepare($sql);
 
     // Vincular los parámetros con los valores
-    $stmt->bind_param("ssss", $descripcion, $talla, $precio, $nombre);
+    $stmt->bind_param("sssssssss", $descripcion, $price, $descuento, $stock, $fecha_entrada, $id_proveedor, $id_almacen, $activo, $nombre);
 
     // Ejecutar la sentencia
     if ($stmt->execute()) {
@@ -66,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['eliminar'])) {
     $nombre = $_POST['nombre'];
 
     // Consulta SQL para eliminar el producto de la base de datos
-    $sql = "DELETE FROM inventario WHERE nombre='$nombre'";
+    $sql = "DELETE FROM producto WHERE nombre='$nombre'";
 
     if ($conn->query($sql) === TRUE) {
         // Producto eliminado correctamente
@@ -131,87 +141,108 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['eliminar'])) {
     </nav>
 
     <div class="crud-section">
-    <h3>Crear Nuevo Producto</h3>
-    <form method="post" action="" class="product-form" enctype="multipart/form-data">
+        <h3>Crear Nuevo Producto</h3>
+        <form method="post" action="" class="product-form">
+            <div class="form-group">
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <input type="text" id="descripcion" name="descripcion" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="price">Precio:</label>
+                <input type="text" id="price" name="price" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="descuento">Descuento:</label>
+                <input type="text" id="descuento" name="descuento" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="stock">Stock:</label>
+                <input type="text" id="stock" name="stock" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="fecha_entrada">Fecha de Entrada:</label>
+                <input type="text" id="fecha_entrada" name="fecha_entrada" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="id_proveedor">ID Proveedor:</label>
+                <input type="text" id="id_proveedor" name="id_proveedor" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="id_almacen">ID Almacen:</label>
+                <input type="text" id="id_almacen" name="id_almacen" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="activo">Activo:</label>
+                <input type="text" id="activo" name="activo" class="form-control">
+            </div>
+            <button type="submit" name="crear" class="btn btn-primary">Crear</button>
+        </form>
+    </div>
 
-        <div class="form-group">
-            <label for="imagen">Imagen:</label>
-            <input type="file" id="imagen" name="imagen" class="form-control">
-        </div>  
-        <div class="form-group">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="descripcion">Descripción:</label>
-            <input type="text" id="descripcion" name="descripcion" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="talla">Talla:</label>
-            <input type="text" id="talla" name="talla" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="precio">Precio:</label>
-            <input type="text" id="precio" name="precio" class="form-control">
-        </div>
-        <button type="submit" name="crear" class="btn btn-primary">Crear</button>
-    </form>
-</div>
+    <!-- Mostrar Inventario -->
+    <div class="crud-section">
+        <h3>Inventario de Productos</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Descuento</th>
+                    <th>Stock</th>
+                    <th>Fecha de Entrada</th>
+                    <th>ID Proveedor</th>
+                    <th>ID Almacen</th>
+                    <th>Activo</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
 
-<!-- Mostrar Inventario -->
-<div class="crud-section">
-    <h3>Inventario de Productos</h3>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Imagen</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Talla</th>
-                <th>Precio</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
-            </tr>
-        </thead>
-        <tbody>
+            <?php
+            // Verificar si se encontraron resultados
+            if ($result->num_rows > 0) {
+                // Iterar sobre cada fila de resultados
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>".$row["id"]."</td>";
+                    echo "<td>".$row["nombre"]."</td>";
+                    echo "<td>".$row["descripcion"]."</td>";
+                    echo "<td>".$row["price"]."</td>";
+                    echo "<td>".$row["descuento"]."</td>";
+                    echo "<td>".$row["stock"]."</td>";
+                    echo "<td>".$row["fecha_entrada"]."</td>";
+                    echo "<td>".$row["id_proveedor"]."</td>";
+                    echo "<td>".$row["id_almacen"]."</td>";
+                    echo "<td>".$row["activo"]."</td>";
+                    echo "<td><a href='editar.php?nombre=".$row["nombre"]."'>Editar</a></td>";
+                    echo "<td>
+                            <form method='post' action=''>
+                                <input type='hidden' name='nombre' value='".$row["nombre"]."'>
+                                <input type='submit' name='eliminar' value='Eliminar'>
+                            </form>
+                          </td>";
+                    echo "</tr>";
+                }
+                
+            } else {
+                // Si no se encontraron resultados, imprimir un mensaje
+                echo "<tr><td colspan='12'>No hay productos en el inventario</td></tr>";
+            }
+            ?>
 
-    
-    <?php
-// Realizar una consulta a la base de datos para obtener los registros
-$sql = "SELECT * FROM inventario";
-$result = $conn->query($sql);
-
-// Verificar si se encontraron resultados
-if ($result->num_rows > 0) {
-    // Iterar sobre cada fila de resultados
-    while($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        // Aquí agregamos la verificación de la imagen
-        if ($row["imagen"] !== null) {
-            echo "<td><img src='uploads/".$row["imagen"]."' alt='".$row["nombre"]."'></td>";
-        } else {
-            echo "<td>No hay imagen disponible</td>";
-        }
-        echo "<td>".$row["nombre"]."</td>";
-        echo "<td>".$row["descripcion"]."</td>";
-        echo "<td>".$row["talla"]."</td>";
-        echo "<td>".$row["precio"]."</td>";
-        echo "<td><a href='editar.php?nombre=".$row["nombre"]."'>Editar</a></td>";
-        echo "<td>
-                <form method='post' action=''>
-                    <input type='hidden' name='nombre' value='".$row["nombre"]."'>
-                    <input type='submit' name='eliminar' value='Eliminar'>
-                </form>
-              </td>";
-        echo "</tr>";
-    }
-    
-} else {
-    // Si no se encontraron resultados, imprimir un mensaje
-    echo "<tr><td colspan='7'>No hay productos en el inventario</td></tr>";
-}
-?>
-
-</table>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

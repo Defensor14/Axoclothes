@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "tu_usuario"; 
-$password = "tu_contraseña"; 
-$dbname = "axoclothes"; 
+$servername = "localhost:3307";
+$username = "root";
+$password = "";
+$dbname = "axoclothes";
 
 // Crear una conexión a la base de datos
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -31,7 +31,7 @@ if(isset($_POST['editar'])) {
 
     if ($conn->query($sql) === TRUE) {
         echo "Producto actualizado correctamente";
-        header("refresh:2; url=crud_productos.php");
+        header("refresh:2; url=inventario.php");
         exit(); 
     } else {
         echo "Error al actualizar producto: " . $conn->error;
