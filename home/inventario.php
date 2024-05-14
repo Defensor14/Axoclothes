@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "tu_usuario"; // Cambia esto por tu nombre de usuario de la base de datos
-$password = "tu_contraseña"; // Cambia esto por tu contraseña de la base de datos
-$dbname = "nombre_de_tu_base_de_datos"; // Cambia esto por el nombre de tu base de datos
+$servername = "localhost:3307";
+$username = "root"; // Cambia esto por tu nombre de usuario de la base de datos
+$password = ""; // Cambia esto por tu contraseña de la base de datos
+$dbname = "axoclothes"; // Cambia esto por el nombre de tu base de datos
 
 // Operación de Crear
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['crear'])) {
