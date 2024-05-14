@@ -106,6 +106,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['eliminar'])) {
     <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/realstyle.css">
     <link rel="stylesheet" href="css/inventario.css">
+    <link rel="stylesheet" href="css/editar.css">
+
 
 </head>
 

@@ -1,122 +1,121 @@
-/* Estilos para el formulario de crear nueva planta */
-.crud-section {
-    margin-bottom: 20px;
-    margin-top: 28px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    font-family: Tangiang;
-    font-size: 25px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-.section-title {
-    margin-top: 50px;
+.crud-section {
+    margin-bottom: 20px;
+    text-align: center; 
+}
+
+.crud-section h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #000000;
+    font-size: 24px;
 }
 
 .form-group {
     margin-bottom: 20px;
 }
 
-.form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
     font-size: 16px;
 }
 
-.btn {
-    background-color: #866c49;
-    color: #fff;
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    outline: none;
+}
+
+button[type="submit"] {
+    background-color: #ff69b4;
+    color: #ffffff;
+    padding: 12px 20px;
     border: none;
-    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
     transition: background-color 0.3s ease;
 }
 
-.btn:hover {
-    background-color: #726249;
+button[type="submit"]:hover {
+    background-color: #ff1493;
 }
 
+.table-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
 
-/* Estilos para la tabla de inventario */
 .table {
     width: 100%;
-    font-family: Tangiang;
-    font-size: 20px;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.table th, .table td {
-    padding: 10px;
-    border: 3.5px solid #ddc69c;
+.table-container .crud-section {
+    padding: 20px;
+}
+
+.table-container h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #000000;
+    font-size: 24px;
+}
+
+.table th,
+.table td {
+    border: 1px solid #000000;
+    padding: 12px;
+    text-align: left;
 }
 
 .table th {
-    background-color: #866c49;
-    color: white;
-    text-align: center;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 18px;
 }
 
-.table td {
-    text-align: center;
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
-.btn-info, .btn-danger {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.table tbody tr:hover {
+    background-color: #e9ecef;
 }
 
-.btn-info {
-    background-color: #17a2b8;
-    color: #fff;
+.product-form .btn-primary {
+    width: 400px; 
 }
 
-.btn-danger {
-    background-color: #dc3545;
-    color: #fff;
-}
+@media (max-width: 768px) {
+    .table-container {
+        max-width: 400px; 
+    }
 
-.btn-info:hover, .btn-danger:hover {
-    opacity: 0.80;
-}
+    .table-container table {
+        font-size: 14px;
+    }
 
-
-
-/*edit_proceso*/
-.edit-form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.btn-primary {
-    background-color: #806139;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn-primary:hover {
-    background-color: #68543e;
+    .product-form .btn-primary {
+        width: 120px; 
+    }
 }

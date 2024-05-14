@@ -54,6 +54,7 @@ $conn->close();
     <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/realstyle.css">
     <link rel="stylesheet" href="css/inventario.css">
+    <link rel="stylesheet" href="css/editar.css">
 </head>
 
 <body>
