@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "tu_usuario"; // Cambia esto por tu nombre de usuario de la base de datos
-$password = "tu_contraseña"; // Cambia esto por tu contraseña de la base de datos
-$dbname = "nombre_de_tu_base_de_datos"; // Cambia esto por el nombre de tu base de datos
+$username = "tu_usuario"; 
+$password = "tu_contraseña"; 
+$dbname = "axoclothes"; 
 
 // Crear una conexión a la base de datos
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -12,21 +12,20 @@ if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
 
-// Obtener el nombre de la planta de la URL
+// Obtener el nombre del producto de la URL
 if(isset($_GET['nombre'])) {
     $nombre = $_GET['nombre'];
 
-    // Realizar una consulta para obtener los detalles de la planta a editar
-    $sql = "SELECT * FROM inventario WHERE nombre='$nombre'";
+    // Realizar una consulta para obtener los detalles del producto a editar
+    $sql = "SELECT * FROM producto WHERE nombre='$nombre'";
     $result = $conn->query($sql);
 
-    // Verificar si se encontró la planta
+    // Verificar si se encontró el producto
     if ($result->num_rows > 0) {
-        // Mostrar el formulario de edición con los detalles de la planta
+        // Mostrar el formulario de edición con los detalles del producto
         $row = $result->fetch_assoc();
-        $imagen = $row['imagen']; // Obtener la ruta de la imagen
     } else {
-        echo "Planta no encontrada";
+        echo "Producto no encontrado";
     }
 } else {
     echo "Faltan parámetros en la URL";
@@ -55,8 +54,6 @@ $conn->close();
     <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/realstyle.css">
     <link rel="stylesheet" href="css/inventario.css">
-
-
 </head>
 
 <body>
@@ -91,31 +88,51 @@ $conn->close();
     </nav>
 
     <!-- Formulario para Editar -->
-    <form method="post" action="editar_proceso.php" class="edit-form" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="imagen">Imagen:</label>
-            <input type="file" id="imagen" name="imagen" class="form-control">
-            <?php if (!empty($imagen)) : ?>
-                <img src="<?php echo $imagen; ?>" alt="Imagen del producto" style="max-width: 200px;">
-            <?php endif; ?>
-        </div>
-        <div class="form-group">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" value="<?php echo $row['nombre']; ?>" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="descripcion">Descripción:</label>
-            <input type="text" id="descripcion" name="descripcion" value="<?php echo $row['descripcion']; ?>" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="talla">Talla:</label>
-            <input type="text" id="talla" name="talla" value="<?php echo $row['talla']; ?>" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="precio">Precio:</label>
-            <input type="text" id="precio" name="precio" value="<?php echo $row['precio']; ?>" class="form-control">
-        </div>
-        <button type="submit" name="editar" class="btn btn-primary">Editar</button>
-    </form>
+    <div class="crud-section">
+        <h3>Editar Producto</h3>
+        <form method="post" action="editar_proceso.php" class="edit-form">
+            <div class="form-group">
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id" value="<?php echo $row['id']; ?>" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" value="<?php echo $row['nombre']; ?>" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <input type="text" id="descripcion" name="descripcion" value="<?php echo $row['descripcion']; ?>" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="price">Precio:</label>
+                <input type="text" id="price" name="price" value="<?php echo $row['price']; ?>" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="descuento">Descuento:</label>
+                <input type="text" id="descuento" name="descuento" value="<?php echo $row['descuento']; ?>" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="stock">Stock:</label>
+                <input type="text" id="stock" name="stock" value="<?php echo $row['stock']; ?>" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="fecha_entrada">Fecha de Entrada:</label>
+                <input type="text" id="fecha_entrada" name="fecha_entrada" value="<?php echo $row['fecha_entrada']; ?>" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="id_proveedor">ID Proveedor:</label>
+                <input type="text" id="id_proveedor" name="id_proveedor" value="<?php echo $row['id_proveedor']; ?>" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="id_almacen">ID Almacen:</label>
+                <input type="text" id="id_almacen" name="id_almacen" value="<?php echo $row['id_almacen']; ?>" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="activo">Activo:</label>
+                <input type="text" id="activo" name="activo" value="<?php echo $row['activo']; ?>" class="form-control">
+            </div>
+            <button type="submit" name="editar" class="btn btn-primary">Editar</button>
+        </form>
+    </div>
 </body>
 </html>
