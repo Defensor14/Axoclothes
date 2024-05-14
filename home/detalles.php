@@ -14,6 +14,7 @@ if($id == '' || $token == ''){
 } else {
 
     $token_tmp = hash_hmac('sha1', $id, KEY_TOKEN);
+    
     if($token == $token_tmp){
 
         $sql = $con->prepare("SELECT count(id) FROM producto WHERE id=? AND activo=1");
@@ -32,9 +33,9 @@ if($id == '' || $token == ''){
 
             // $rutaImg = $dir_images . 'principal.jpg';
 
-            // if(!file_exists($rutaImg)){
-            //     $rutaImg = 'images/no-photo.jpg';
-            // }
+             if(!file_exists($dir_images)){
+                 $dir_images = 'images/no-photo.jpg';
+             }
 
             // $imagenes = array();
             // $dir = dir($dir_images);
@@ -119,7 +120,7 @@ if($id == '' || $token == ''){
             <button class="btn-carrioto" type="submit">
                 <i class="bi-cart-fill me-1"></i>
                 Carrito
-                <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                <span id="num_cart" class="badge bg-secondary"><?php echo $num_cart; ?></span>
             </button>
         </form>
     </nav>
@@ -163,7 +164,7 @@ if($id == '' || $token == ''){
 
             <div class="Cont-btn"> 
                 <button class="btn-primary" type="buttom">Comprar Ahora</button>
-                <button class="btn-outline-primary" type="buttom">Agregar al carrito</button>
+                <button class="btn-outline-primary" type="buttom" onclick="addProducto(<?php echo $id; ?>, '<?php echo $token_tmp; ?>')">Agregar al carrito</button>
             </div>
         </div>
        </div>
@@ -177,10 +178,29 @@ if($id == '' || $token == ''){
     </footer>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <!-- <script type="text/javascript" src="js/scripts.js"></script>
-   <script type="text/javascript" src="js/bd_stock.js"></script> -->
     <script src="js/zoom.js"></script>
+
+    <script>
+        function addProducto(id, token){
+             let url = 'clases/carrito.php'
+             let formData = new FormData()
+             formData.append('id', id)
+             formData.append('token', token)
+
+             fetch(url,{
+                method: 'POST',
+                body: formData,
+                mode: 'cors'
+             }).then(response => response.json())
+             .then(data => {
+                console.log(data);
+                if(data.ok){
+                    let elemento = document.getElementById("num_cart")
+                    elemento.innerHTML = data.numero
+                }
+             })
+        }
+    </script>
 
     <!-- Instagram icon -->
     <a href="https://www.instagram.com/axo.clothes/" class="float">

@@ -8,6 +8,14 @@ $con = $db->conectar();
 $sql = $con->prepare("SELECT id, nombre, price FROM producto WHERE activo=1");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+$id = isset($_GET['id']) ? $_GET['id'] : '';
+
+    $token_tmp = hash_hmac('sha1', $id, KEY_TOKEN);
+
+    //session_destroy();
+
+    print_r($_SESSION);
+    
 
 ?>
 
@@ -70,7 +78,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
             <button class="btn-carrioto" type="submit">
                 <i class="bi-cart-fill me-1"></i>
                 Carrito
-                <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                <span id="num_cart" class="badge bg-secondary"><?php echo $num_cart; ?></span>
             </button>
         </form>
     </nav>
@@ -120,10 +128,12 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto"
-                                        href="detalles.php?id=<?php echo $row['id'];?>&token=<?php echo hash_hmac('sha1', $row['id'], KEY_TOKEN);?>">Ver más</a></div>
+                                <div class="text-center">
+                                        <a class="btn btn-outline-dark mt-auto"href="detalles.php?id=<?php echo $row['id'];?>&token=<?php echo hash_hmac('sha1', $row['id'], KEY_TOKEN);?>">Ver más</a>
+                                        <button class="btn-outline-success" type="buttom" onclick="addProducto(<?php echo $row['id']; ?>, '<?php echo hash_hmac('sha1', $row['id'], KEY_TOKEN);?>')">Agregar al carrito</button>
+                                </div>
                             </div>
-                        </div>
+                         </div>
                     </a>
                 </div>
                 <?php } ?>
@@ -144,6 +154,28 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     <!-- <script type="text/javascript" src="js/scripts.js"></script>
    <script type="text/javascript" src="js/bd_stock.js"></script> -->
     <script src="js/zoom.js"></script>
+
+    <script>
+        function addProducto(id, token){
+             let url = 'clases/carrito.php'
+             let formData = new FormData()
+             formData.append('id', id)
+             formData.append('token', token)
+
+             fetch(url,{
+                method: 'POST',
+                body: formData,
+                mode: 'cors'
+             }).then(response => response.json())
+             .then(data => {
+                console.log(data);
+                if(data.ok){
+                    let elemento = document.getElementById("num_cart")
+                    elemento.innerHTML = data.numero
+                }
+             })
+        }
+    </script>
 
     <!-- Instagram icon -->
     <a href="https://www.instagram.com/axo.clothes/" class="float">
