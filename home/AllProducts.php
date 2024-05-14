@@ -14,7 +14,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
 
     //session_destroy();
 
-    print_r($_SESSION);
+    //print_r($_SESSION);
     
 
 ?>
@@ -75,11 +75,11 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                 
             </ul>
         <form class="d-flex">
-            <button class="btn-carrioto" type="submit">
+            <a  href="chekout.php" class="btn-carrioto" type="submit">
                 <i class="bi-cart-fill me-1"></i>
                 Carrito
                 <span id="num_cart" class="badge bg-secondary"><?php echo $num_cart; ?></span>
-            </button>
+            </a>
         </form>
     </nav>
 

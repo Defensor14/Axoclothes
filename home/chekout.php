@@ -5,55 +5,22 @@ require '../config/database.php';
 $db = new Database();
 $con = $db->conectar();
 
-$id = isset($_GET['id']) ? $_GET['id'] : '';
-$token = isset($_GET['token']) ? $_GET['token'] : '';
+$productos = isset($_SESSION['carrito']['productos']) ? $_SESSION['carrito']['productos'] :null;
 
-if($id == '' || $token == ''){
-    echo 'Error al procesar la petición';
-    exit;
-} else {
+ print_r($_SESSION);
 
-    $token_tmp = hash_hmac('sha1', $id, KEY_TOKEN);
-    
-    if($token == $token_tmp){
+ $lista_carrito = array();
 
-        $sql = $con->prepare("SELECT count(id) FROM producto WHERE id=? AND activo=1");
-        $sql->execute([$id]);
-        if($sql -> fetchColumn() > 0 ){
+ if($productos != null){
+    foreach($productos as $clave => $cantidad){
 
-            $sql = $con->prepare("SELECT nombre, descripcion, price, descuento FROM producto WHERE id=? AND activo=1 LIMIT 1");
-            $sql->execute([$id]);
-            $row = $sql-> fetch(PDO::FETCH_ASSOC);
-            $nombre = $row['nombre'];
-            $descripcion = $row['descripcion'];
-            $precio = $row['price'];
-            $descuento = $row['descuento'];
-            $precio_desc = $precio - (($precio * $descuento)/100);
-            $dir_images = 'images/'.$id.'/product.jpg';
-
-            // $rutaImg = $dir_images . 'principal.jpg';
-
-             if(!file_exists($dir_images)){
-                 $dir_images = 'images/no-photo.jpg';
-             }
-
-            // $imagenes = array();
-            // $dir = dir($dir_images);
-
-            // while(($archivo = $dir->read()) != false){
-            //     if($archivo != 'principal.jpg' && (strpos($archivo, 'jpg') || strpos($archivo, 'jpeg'))){
-            //         $imagenes[] = $dir_images . $archivo;
-            //     }
-            // }
-            // $dir->close();
-        }
-        
-    }else {
-        echo 'Error al procesar la petición';
-        exit;
-    }
+        $sql = $con->prepare("SELECT id, nombre, price, descuento, $cantidad AS cantidad FROM producto WHERE id=? AND activo=1");
+        $sql->execute([$clave]);
+        $lista_carrito[] = $sql->fetch(PDO::FETCH_ASSOC);
+ }
 }
 
+    //session_destroy();
 
 ?>
 
@@ -77,8 +44,9 @@ if($id == '' || $token == ''){
     <link rel="stylesheet" href="css/realstyle.css">
 </head>
 
+
 <body>
-    <!-- Navigation-->
+    <!-- Navigationsolo es una prueba-->
     <nav class="navbar">
         <div id="logo">
             <img src="images/logo.svg" style="width: 30px; margin: 5px;">
@@ -89,16 +57,8 @@ if($id == '' || $token == ''){
             aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             
             <ul class="menu">
-                
-            <li class="dropdown">
-                    <a href="#" class="dropbtn">Usuario</a>
-                    <div class="dropdown-content">
-                        <a href="Login.php">Inicia sesion</a>
-                        <a href="SignUp.php">Crear cuenta</a>
-                    </div>
-                </li>
-
                 <li><a href="index.html">Inicio</a></li>
+
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Comprar</a>
                     <div class="dropdown-content">
@@ -107,7 +67,9 @@ if($id == '' || $token == ''){
                         <a href="#valores">Nuevo</a>
                     </div>
                 </li>
+
                 <li><a href="#contacto">Sobre nosotros</a></li>
+
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Usuarios</a>
                     <div class="dropdown-content">
@@ -115,6 +77,7 @@ if($id == '' || $token == ''){
                         <a href="Login.php">Iniciar sesion</a>
                     </div>
                 </li>
+                
             </ul>
         <form class="d-flex">
         <a  href="chekout.php" class="btn-carrioto" type="submit">
@@ -126,48 +89,70 @@ if($id == '' || $token == ''){
     </nav>
 
     <!-- Header-->
-    <header class="headercontenedor py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Explora nuestro catálogo</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Encuentra todo lo que necesitas, y lo que no también.</p>
-            </div>
-        </div>
-    </header>
 
     <!-- Section-->
     <section id="general-section">
-       <div class="row">
-        <div class="col-md-6 order-md-1">
-            <img src="<?php echo $dir_images ?>">
-        </div>
-        <div class="col-md-6 order-md-2">
-            <h2><?php echo $nombre?></h2>
+        <div id="general-container">
+            
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if($lista_carrito == null){
+                            echo '<tr><td colspan=5 class="text-center"><b>Lista vacia</b></td></tr>';
+                        }else{
+                            $total = 0;
+                            foreach($lista_carrito as $producto){
+                                $_id = $producto['id'];
+                                $nombre = $producto['nombre'];
+                                $precio = $producto['price'];
+                                $descuento = $producto['descuento'];
+                                $cantidad = $producto['cantidad'];
+                                $precio_desc = $precio - (($precio * $descuento) / 100);
+                                $subtotal = $cantidad * $precio_desc;
+                                $total += $subtotal;
+                             ?>
 
-            <?php if($descuento > 0){ ?>
-            <p><del><?php echo MONEDA . number_format($precio, 2, '.', ',');?></del></p>
-            <h2>
-                <?php echo MONEDA . number_format($precio_desc, 2, '.', ',');?>
-                <small clas="text-success"><?php echo $descuento; ?>% descuento</small>
-            </h2>
+                        <tr>
+                            <td><?php echo $nombre?></td>
+                            <td><?php echo MONEDA . number_format($precio_desc, 2, '.',',');?></td>
+                            <td>
+                                <input type="number" min="1" max="10" step="1" value="<?php echo $cantidad ?>" size="5" id="cantidad_<?php echo $id;?>" onchange="">
+                            </td>
+                            <td>
+                                <div id="subtotal_<?php echo $_id;?>" name="subtotal[]"><?php echo MONEDA . number_format($subtotal, 2, '.',',');?></div>
+                            </td>
+                            <td><a href="#" id="eliminar" class=" btn btn-warning btn-sm" data-bs-id="<?php echo $_id; ?>" data-bs-toggle="modal" data-bs-target="eliminaModal">Eliminar</a></td>
+                        </tr>
+                        <?php } ?>
 
-            <?php } else { ?>
+                        <tr>
+                            <td colspan="3"></td>
+                            <td colspan="2">
+                                <p class="h3" id="total"><?php echo MONEDA . number_format($total, 2, '.', ','); ?></p>
+                            </td>
+                        </tr>
 
-
-            <h2><?php echo MONEDA . number_format($precio, 2, '.', ',');?></h2>
-
-            <?php } ?>
-
-            <p class="Info">
-                <?php echo $descripcion ?>
-            </p>
-
-            <div class="Cont-btn"> 
-                <button class="btn-primary" type="buttom">Comprar Ahora</button>
-                <button class="btn-outline-primary" type="buttom" onclick="addProducto(<?php echo $id; ?>, '<?php echo $token_tmp; ?>')">Agregar al carrito</button>
+                    </tbody>
+                    <?php } ?>
+                </table>
             </div>
+
+            <div class="row">
+                <div class="col-md-5 offset-md-7 d-grid gap-2">
+                    <button class="btn btn-primary btn-lg">Realizar pago</button>
+                </div>
+            </div>
+
         </div>
-       </div>
     </section>
 
     <!-- Footer-->
@@ -176,8 +161,10 @@ if($id == '' || $token == ''){
             <p class="m-0 text-center text-white">Copyright &copy; AXOCLOTHES 2023</p>
         </div>
     </footer>
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
     <script src="js/zoom.js"></script>
 
     <script>
