@@ -24,46 +24,71 @@
         <div id="logo">
             <img src="images/logo.svg">
         </div>
-        <a class="navbar-brand" href="index.html">AXOCLOTHES</a>
+        <a class="navbar-brand" href="index.php">AXOCLOTHES</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             
             <ul class="menu">
-                <li><a href="#">Inicio</a></li>
+                <li><a href="index.php">Inicio</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropbtn">Comprar</a>
+                    <a href="AllProducts.php"class="dropbtn">Comprar</a>
                     <div class="dropdown-content">
                         <a href="AllProducts.php">Todos los productos</a>
                         <a href="#vision">Tendencias</a>
                         <a href="#valores">Nuevo</a>
                     </div>
                 </li>
-                <li><a href="#contacto">Sobre nosotros</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropbtn">Usuarios</a>
+                    <a href="Login.php" class="dropbtn">Usuarios</a>
                     <div class="dropdown-content">
                         <a href="SignUp.php">Crear cuenta</a>
                         <a href="Login.php">Iniciar sesion</a>
                     </div>
                 </li>
             </ul>
-        <form class="d-flex">
-            <button class="btn-carrioto" type="submit">
-                <i class="bi-cart-fill me-1"></i>
-                Carrito
-                <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-            </button>
-        </form>
+            <form class="d-flex">
+                <button class="btn-carrioto" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    Carrito
+                    <span id="num_cart" class="badge bg-secondary"></span>
+                </button>
+            </form>
     </nav>
 
     <!-- Header-->
-    <header class="headercontenedor py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Estilo a tu alcance</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Calidad, precio y maravillosas experiencias</p>
+
+    <header>
+        <div class="contenedorSlider">
+            <input type="radio" id="1" name="slide" hidden/>
+            <input type="radio" id="2" name="slide" hidden/>
+            <input type="radio" id="3" name="slide" hidden/>
+
+            <div class="slide">
+                <!---->
+                <div class="item-slide" id="s1" style="background-color: #ffaab6;">
+                </div>
+                <!---->
+
+                <!---->
+                <div class="item-slide" id="s2" style="background-color: #ffd659;">
+
+                </div>
+                <!---->
+
+                <!---->
+                <div class="item-slide" id="s3" style="background-color: #ff6378;">
+
+                </div>
+                <!---->
             </div>
+            
+            <div class="pagination">
+                <label class="pagination-item" for="1"></label>
+                <label class="pagination-item" for="2"></label>
+                <label class="pagination-item" for="3"></label>
+            </div>
+
         </div>
     </header>
     
@@ -81,7 +106,10 @@
     <!-- Footer-->
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; AXOCLOTHES 2023</p>
+            <a href="about.html"><p class="m-0 text-center enlaces-footer">Acerca de</p></a> <p class="m-0 text-center text-white">•</p>
+            <a href="policy.html"><p class="m-0 text-center enlaces-footer">Privacidad</p></a>    <p class="m-0 text-center text-white">•</p>
+            <a href="terminos.php"><p class="m-0 text-center enlaces-footer">Términos</p></a> <br>
+            <p class="m-0 text-center text-white">Copyright &copy; AXOCLOTHES 2024</p>
         </div>
     </footer>
     <!-- Bootstrap core JS-->
