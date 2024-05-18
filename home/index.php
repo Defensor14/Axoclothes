@@ -48,12 +48,12 @@
                 </li>
             </ul>
             <form class="d-flex">
-                <button class="btn-carrioto" type="submit">
-                    <i class="bi-cart-fill me-1"></i>
-                    Carrito
-                    <span id="num_cart" class="badge bg-secondary"></span>
-                </button>
-            </form>
+            <a  href="chekout.php" class="btn-carrioto" type="submit">
+                <i class="bi-cart-fill me-1"></i>
+                Carrito
+                <span id="num_cart" class="badge bg-secondary"></span>
+            </a>
+        </form>
     </nav>
 
     <!-- Header-->
@@ -106,9 +106,9 @@
     <!-- Footer-->
     <footer class="py-5 bg-dark">
         <div class="container">
-            <a href="about.html"><p class="m-0 text-center enlaces-footer">Acerca de</p></a> <p class="m-0 text-center text-white">•</p>
+            <a href="aboutus.html"><p class="m-0 text-center enlaces-footer">Acerca de</p></a> <p class="m-0 text-center text-white">•</p>
             <a href="policy.html"><p class="m-0 text-center enlaces-footer">Privacidad</p></a>    <p class="m-0 text-center text-white">•</p>
-            <a href="terminos.php"><p class="m-0 text-center enlaces-footer">Términos</p></a> <br>
+            <a href="terms.html"><p class="m-0 text-center enlaces-footer">Términos</p></a> <br>
             <p class="m-0 text-center text-white">Copyright &copy; AXOCLOTHES 2024</p>
         </div>
     </footer>
