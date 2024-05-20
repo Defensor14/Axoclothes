@@ -57,28 +57,24 @@ $productos = isset($_SESSION['carrito']['productos']) ? $_SESSION['carrito']['pr
             aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             
             <ul class="menu">
-                <li><a href="index.html">Inicio</a></li>
-
+                <li><a href="index.php">Inicio</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropbtn">Comprar</a>
+                    <a href="AllProducts.php"class="dropbtn">Comprar</a>
                     <div class="dropdown-content">
                         <a href="AllProducts.php">Todos los productos</a>
                         <a href="#vision">Tendencias</a>
                         <a href="#valores">Nuevo</a>
                     </div>
                 </li>
-
-                <li><a href="#contacto">Sobre nosotros</a></li>
-
                 <li class="dropdown">
-                    <a href="#" class="dropbtn">Usuarios</a>
+                    <a href="Login.php" class="dropbtn">Usuarios</a>
                     <div class="dropdown-content">
                         <a href="SignUp.php">Crear cuenta</a>
                         <a href="Login.php">Iniciar sesion</a>
                     </div>
                 </li>
-                
             </ul>
+            
         <form class="d-flex">
         <a  href="chekout.php" class="btn-carrioto" type="submit">
                 <i class="bi-cart-fill me-1"></i>
@@ -176,7 +172,10 @@ $productos = isset($_SESSION['carrito']['productos']) ? $_SESSION['carrito']['pr
     <!-- Footer-->
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; AXOCLOTHES 2023</p>
+            <a href="aboutus.html"><p class="m-0 text-center enlaces-footer">Acerca de</p></a> <p class="m-0 text-center text-white">•</p>
+            <a href="policy.html"><p class="m-0 text-center enlaces-footer">Privacidad</p></a>    <p class="m-0 text-center text-white">•</p>
+            <a href="terms.html"><p class="m-0 text-center enlaces-footer">Términos</p></a> <br>
+            <p class="m-0 text-center text-white">Copyright &copy; AXOCLOTHES 2024</p>
         </div>
     </footer>
 
