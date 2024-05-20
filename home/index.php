@@ -94,12 +94,78 @@
     
     <!-- Section-->
     <section>
+        <div class="info-section">
+            <div class="info-item">
+                <img src="images/Icon_entrega.png" alt="Envío gratis">
+                <div>
+                    <p class="info-Titulo">Envío gratis</p>
+                    <p class="info-Subtitulo">A todo México</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <img src="images/Icon_promocion.png"  alt="Cupones y promociones">
+                <div>
+                    <p class="info-Titulo">Cupones y promociones</p>
+                    <p class="info-Subtitulo">Para todos los clientes</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <img src="images/Icon_compra.png" alt="Compatibilidad y confiabilidad">
+                <div>
+                    <p class="info-Titulo">Compatibilidad y confiabilidad</p>
+                    <p class="info-Subtitulo">Compra cuando quieras</p>
+                </div>
+            </div>
+        </div>
+
         <div class="interfaz-index">
-            <div class="caja contenedor-index1"></div>
-            <div class="caja contenedor-index2"></div>
-            <div class="caja contenedor-index3"></div>
-            <div class="caja contenedor-index2"></div>
-            <div class="caja contenedor-index1"></div>
+            <div class="contenedor-index1">
+                <img src="images/IS_small_01.png">
+            </div>
+
+            <div class="contenedor-index1">
+                <img src="images/IS_small_02.png">
+            </div>
+
+            <div class="contenedor-index1">
+                <img src="images/IS_small_03.png">
+            </div>
+
+            <div class="contenedor-index1">
+                <img src="images/IS_small_04.png">
+            </div>
+
+            <div class="contenedor-index1">
+                <img src="images/IS_small_05.png">
+            </div>
+
+            <div class="contenedor-index1">
+                <img src="images/IS_small_06.png">
+            </div>
+        </div>
+
+        <div class="info-section2">
+            <div class="info-centro">
+                <img src="images/Icono_tienda.png" alt="Compatibilidad y confiabilidad">
+                <div>
+                    <p class="info-Titulo">Compra todo lo que quieras</p>
+                    <p class="info-Subtitulo">Sin salir de casa</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="interfaz-index">
+            <div class="contenedor-index2">
+                <img src="images/IS_large_02.jpg">
+            </div>
+
+            <div class="contenedor-index2">
+                <img src="images/IS_large_01.jpg">
+            </div>
+
+            <div class="contenedor-index2">
+                <img src="images/IS_large_03.jpg">
+            </div>
         </div>
        
     </section>
