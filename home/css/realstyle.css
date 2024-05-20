@@ -348,35 +348,331 @@ a {
   }
 
 
+/*-------------------------------------------------*/
+/*--------------------FOOTER-----------------------*/
+
+.enlaces-footer{
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .enlaces-footer:hover{
+    color: #ff1b50;
+    transition: .3s;
+  }
+
+/*-------------------------------------------------*/
+/*--------------------SLIDER-----------------------*/
+
+
+.contenedorSlider{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+  }
+  
+  /*slides*/
+  .slide{
+    display: flex;
+    transform: translate3d(0,0,0);
+    transition: all 100ms;
+    animation-name: autoplay;
+    animation-duration: 10s;
+    animation-direction:alternate;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+  }
+  
+  /*item-slide*/
+  .item-slide{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    flex-grow: 0;
+    height: 500px;
+    width: 100%;
+  }
+  
+  /*pagination*/
+  .pagination{
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  /*pagination-item*/
+  .pagination-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    background-color: #ffffff;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    margin: 0 10px;
+    transition: all 300ms;
+  
+  }
+  
+  .pagination-item:hover{
+    transform: scale(2);
+    background-color: #ff6c9f;
+    border: 1px solid #ffffff
+  }
+  
+  
+  
+  input[id="1"]:checked ~ .slide{
+    animation: none;
+    transform: translate3d(0, 0, 0);
+  }
+  
+  input[id="2"]:checked ~ .slide{
+    animation: none;
+    transform: translate3d(calc(-100% * 1),0,0);
+  }
+  
+  input[id="3"]:checked ~ .slide{
+    animation: none;
+    transform: translate3d(calc(-100% * 2),0,0);
+  }
+
+
+  #s1{
+    background-image: url(../images/s_01.png);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+    }
+    
+#s2{
+    background-image: url(../images/s_02.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+     }
+    
+#s3{
+    background-image: url(../images/s_03.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+     }
+
+
+
+@keyframes autoplay{
+    0%{
+      transform: translate3d(calc(-100% * 0),0,0);
+    }
+    35%{
+      transform: translate3d(calc(-100% * 0),0,0);
+    }
+    40%{
+      transform: translate3d(calc(-100% * 1),0,0);
+    }
+    75%{
+      transform: translate3d(calc(-100% * 1),0,0);
+    }
+    80%{
+      transform: translate3d(calc(-100% * 2),0,0);
+    }
+    100%{
+      transform: translate3d(calc(-100% * 2),0,0);
+    }
+  }
+
+/*-------------------------------------------------*/
+/*--------------------Terminos/Privacidad-----------------------*/
+.tc-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+.tc-heading {
+  text-align: center;
+}
+.tc-content {
+  margin-bottom: 20px;
+}
+.tc-list {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+.tc-item {
+  margin-bottom: 5px;
+}
+@media only screen and (max-width: 600px) {
+  .tc-container {
+    padding: 0 10px;
+  }
+}
+
+.tc-content {
+  margin-bottom: 20px;
+  font-size: 16px; /* Tamaño de fuente */
+  color: #333; /* Color del texto */
+}
+
 
 /*-------------------------------------------------*/
 /*--------------------INDEX-----------------------*/
-.interfaz-index{
+.info-section{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  padding: 0 5%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  flex: 1;
+  margin: 0 10px;
+}
+
+.info-item img {
+  width: 50px; 
+  height: auto;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.info-section2{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.info-centro{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.info-centro img {
+  width: 50px; 
+  height: auto;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.info-Titulo {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.info-Subtitulo {
+  font-size: 0.9em;
+  color: #666;
+  margin: 0;
+}
+
+
+
+.interfaz-index {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.contenedor-index1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+
+  margin: 1%;
+  background-color: #ff0051;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.contenedor-index1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+  .contenedor-index2 {
     display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-between; 
-    margin: 5%;
-}
-
-.caja{
-    margin-bottom: 10px;
-    border-radius: 10px;
-}
-
-.contenedor-index1{
-    width: 29%;
-    height: 200px;
-    background-color: #ff004c;
-  }
-
-  .contenedor-index2{
-    width: 70%;
-    height: 200px;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    margin: 1%;
+    box-sizing: border-box;
     background-color: #ffa200;
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde del contenedor */
   }
+  
+  .contenedor-index2 img {
+    width: 100%; /* Ajusta la imagen para que ocupe todo el ancho del contenedor */
+    height: 100%; /* Ajusta la imagen para que ocupe todo el alto del contenedor */
+    object-fit: cover; /* Ajusta la imagen manteniendo su relación de aspecto y recortándola si es necesario */
+  }
+
+
+
+
 
   .contenedor-index3{
     width: 100%;
     height: 200px;
     background-color: #6f00ff;
   }
+
+  @media (max-width: 768px) {
+    .info-section {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .info-item {
+      flex: 1 1 100%; 
+      margin: 10px 0; 
+      text-align: center;
+    }
+  
+    .info-item img {
+      margin-right: 10px;
+    }
+
+    .contenedor-index1 {
+      width: 90%; /* Ancho de los contenedores en pantallas pequeñas */
+    }
+
+    .contenedor-index2 {
+      width: 90%; /* Ancho de los contenedores en pantallas pequeñas */
+    }
+
+      
+}

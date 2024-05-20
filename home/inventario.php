@@ -122,17 +122,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['eliminar'])) {
             aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             
             <ul class="menu">
-                <li><a href="#">Inicio</a></li>
+                <li><a href="index.php">Inicio</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropbtn">Comprar</a>
+                    <a href="AllProducts.php"class="dropbtn">Comprar</a>
                     <div class="dropdown-content">
                         <a href="AllProducts.php">Todos los productos</a>
                         <a href="#vision">Tendencias</a>
                         <a href="#valores">Nuevo</a>
                     </div>
                 </li>
-                <li><a href="#contacto">Sobre nosotros</a></li>
+                <li class="dropdown">
+                    <a href="Login.php" class="dropbtn">Usuarios</a>
+                    <div class="dropdown-content">
+                        <a href="SignUp.php">Crear cuenta</a>
+                        <a href="Login.php">Iniciar sesion</a>
+                    </div>
+                </li>
             </ul>
+            
         <form class="d-flex">
             <button class="btn-carrioto" type="submit">
                 <i class="bi-cart-fill me-1"></i>
