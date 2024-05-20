@@ -1,4 +1,13 @@
 <?php
+
+// Verificar si el usuario ha iniciado sesión
+session_start();
+if (!isset($_SESSION['email'])) {
+    // Si el usuario no ha iniciado sesión, redirigirlo a la página de inicio de sesión
+    header("Location: Login.php");
+    exit(); // Detener la ejecución del script para evitar que el usuario vea el contenido de la página protegida
+}
+
 $servername = "localhost:3307";
 $username = "root";
 $password = "";
