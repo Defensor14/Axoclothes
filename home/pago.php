@@ -160,8 +160,18 @@ if ($productos != null) {
 
     <!-- Footer-->
     <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; AXOCLOTHES 2023</p>
+        <div class="container d-flex justify-content-between align-items-center">
+            <ul class="footer-menu mb-0 d-flex">
+                <li><a href="#" id="scrollToTop">↑ VOLVER AL COMIENZO</a></li>
+                <li><a href="Index.php">INICIO</a></li>
+                <li><a href="AllProducts.php">COMPRAR</a></li>
+                <li><a href="aboutus.html">ACERCA DE</a></li>
+                <li><a href="policy.html">PRIVACIDAD</a></li>
+                <li><a href="terms.html">TERMINOS</a></li>
+            </ul>
+        </div>
+        <div class="container mt-3">
+            <p class="m-0 text-center text-white">© Copyright 2023 - 2024 Axoclothes Inc. Todos los derechos reservados.</p>
         </div>
     </footer>
 
