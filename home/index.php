@@ -171,7 +171,7 @@
         </div>
        
     </section>
-    <!----------------------------------------------------------------------------------------------- Footer ------------------------->
+    <!------ Footer ------>
     <footer class="py-5 bg-dark">
         <div class="container d-flex justify-content-between align-items-center">
             <ul class="footer-menu mb-0 d-flex">
