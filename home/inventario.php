@@ -1,11 +1,14 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 // Verificar si el usuario ha iniciado sesión
 session_start();
-if (!isset($_SESSION['email'])) {
-    // Si el usuario no ha iniciado sesión, redirigirlo a la página de inicio de sesión
-    header("Location: Login.php");
-    exit(); // Detener la ejecución del script para evitar que el usuario vea el contenido de la página protegida
+
+// Verificar si el usuario ha iniciado sesión como administrador
+if (!isset($_SESSION['email']) || $_SESSION['email'] !== 'admin@gmail.com') {
+    header("Location: no_permisos.php");
+    exit();
 }
 
 $servername = "localhost:3307";

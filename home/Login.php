@@ -1,15 +1,36 @@
 <?php
-
 require '../config/database.php';
 $db = new Database();
 $con = $db->conectar();
 
-$sql = $con->prepare("SELECT email, password FROM user");
+$sql = $con->prepare("SELECT email, password, rol FROM user");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-?>
+// Verificar si se ha enviado el formulario de inicio de sesión
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
+    // Obtener los datos del formulario de inicio de sesión
+    $email = $_POST['email'];
+    $pass = $_POST['password'];
 
+    foreach ($resultado as $row) {
+        if ($row['email'] == $email && password_verify($pass, $row['password'])) {
+            // Iniciar sesión y redirigir al usuario a la página correspondiente
+            session_start();
+            $_SESSION['email'] = $email;
+            $_SESSION['rol'] = $row['rol'];
+
+            if ($_SESSION['rol'] === 'admin') {
+                header("Location: inventario.php"); // Página de bienvenida para administradores
+            } else {
+                header("Location: index.html"); // Página de bienvenida para usuarios normales
+            }
+            exit(); // Importante para detener la ejecución después de la redirección
+        }
+    }
+    echo "Usuario o contraseña incorrectos";
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
     
