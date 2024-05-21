@@ -68,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
             
             <ul class="menu">
                 <li><a href="index.php">Inicio</a></li>
+                <li><a href="inventario.php">Inventario</a></li>
                 <li class="dropdown">
                     <a href="AllProducts.php"class="dropbtn">Comprar</a>
                     <div class="dropdown-content">

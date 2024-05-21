@@ -64,6 +64,8 @@ if ($productos != null) {
 
         <ul class="menu">
             <li><a href="index.html">Inicio</a></li>
+            <li><a href="inventario.php">Inventario</a></li>
+
 
             <li class="dropdown">
                 <a href="#" class="dropbtn">Comprar</a>
