@@ -46,15 +46,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
         <div id="logo">
             <img src="images/logo.svg">
         </div>
-        <a class="navbar-brand" href="index.html">AXOCLOTHES</a>
+        <a class="navbar-brand" href="index.php">AXOCLOTHES</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             
             <ul class="menu">
                 <li><a href="index.php">Inicio</a></li>
-                <li><a href="inventario.php">Inventario</a></li>
-
                 <li class="dropdown">
                     <a href="AllProducts.php"class="dropbtn">Comprar</a>
                     <div class="dropdown-content">
@@ -71,12 +69,11 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                     </div>
                 </li>
             </ul>
-            
-        <form class="d-flex">
+            <form class="d-flex">
             <a  href="chekout.php" class="btn-carrioto" type="submit">
                 <i class="bi-cart-fill me-1"></i>
                 Carrito
-                <span id="num_cart" class="badge bg-secondary"><?php echo $num_cart; ?></span>
+                <span id="num_cart" class="badge bg-secondary"></span>
             </a>
         </form>
     </nav>
@@ -141,12 +138,27 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
         </div>
     </section>
     <!-- Footer-->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <a href="aboutus.html"><p class="m-0 text-center enlaces-footer">Acerca de</p></a> <p class="m-0 text-center text-white">•</p>
-            <a href="policy.html"><p class="m-0 text-center enlaces-footer">Privacidad</p></a>    <p class="m-0 text-center text-white">•</p>
-            <a href="terms.html"><p class="m-0 text-center enlaces-footer">Términos</p></a> <br>
-            <p class="m-0 text-center text-white">Copyright &copy; AXOCLOTHES 2024</p>
+   <footer class="py-5 bg-dark">
+        <div class="container d-flex justify-content-between align-items-center">
+            <ul class="footer-menu mb-0 d-flex">
+                <li><a href="#" id="scrollToTop">↑ VOLVER AL COMIENZO</a></li>
+                <li><a href="Index.php">INICIO</a></li>
+                <li><a href="chekout.php">CARRITO</a></li>
+                <li><a href="aboutus.html">ACERCA DE</a></li>
+                <li><a href="policy.html">PRIVACIDAD</a></li>
+                <li><a href="terms.html">TERMINOS</a></li>
+            </ul>
+    
+            <div class="signup-form text-center my-4">
+                <form class="d-inline-flex flex-column align-items-center">
+                    <p class="text-white mb-2">¿ERES NUEVO? REGISTRATE A NUESTRO SITIO</p>
+                    <input type="email" class="form-control mb-2" placeholder="Introduce tu correo" required>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </form>
+            </div>
+        </div>
+        <div class="container mt-3">
+            <p class="m-0 text-center text-white">© Copyright 2023 - 2024 Axoclothes Inc. Todos los derechos reservados.</p>
         </div>
     </footer>
     <!-- Bootstrap core JS-->
