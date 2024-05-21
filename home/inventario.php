@@ -1,4 +1,16 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Verificar si el usuario ha iniciado sesión
+session_start();
+
+// Verificar si el usuario ha iniciado sesión como administrador
+if (!isset($_SESSION['email']) || $_SESSION['email'] !== 'admin@gmail.com') {
+    header("Location: no_permisos.php");
+    exit();
+}
+
 $servername = "localhost:3307";
 $username = "root";
 $password = "";
@@ -123,6 +135,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['eliminar'])) {
             
             <ul class="menu">
                 <li><a href="index.php">Inicio</a></li>
+                <li><a href="inventario.php">Inventario</a></li>
+
                 <li class="dropdown">
                     <a href="AllProducts.php"class="dropbtn">Comprar</a>
                     <div class="dropdown-content">

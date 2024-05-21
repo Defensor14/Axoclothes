@@ -7,7 +7,6 @@ $con = $db->conectar();
 
 $productos = isset($_SESSION['carrito']['productos']) ? $_SESSION['carrito']['productos'] : null;
 
-//print_r($_SESSION);
 
 $lista_carrito = array();
 
@@ -44,9 +43,9 @@ if ($productos != null) {
     <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/realstyle.css">
 
+    <!--SDK paypal-->
+    <script src="https://www.paypal.com/sdk/js?client-id=<?php echo CLIENT_ID;?>&currency=<?php echo CURRENCY;?>&components=buttons&enable-funding=venmo"></script>
 
-    <!--SDK MercadoPago.js-->
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
 
 </head>
 
@@ -64,6 +63,8 @@ if ($productos != null) {
 
         <ul class="menu">
             <li><a href="index.html">Inicio</a></li>
+            <li><a href="inventario.php">Inventario</a></li>
+
 
             <li class="dropdown">
                 <a href="#" class="dropbtn">Comprar</a>
@@ -102,6 +103,7 @@ if ($productos != null) {
             <div class="row">
                 <div class="col-6">
                     <h4>Detalles de pago</h4>
+                    <div id="paypal-button-container"></div>
                 </div>
 
                 <div class="col-6">
@@ -140,10 +142,10 @@ if ($productos != null) {
                                     <?php } ?>
 
                                     <tr>
-                                        <td colspan="3"></td>
                                         <td colspan="2">
-                                            <p class="h3" id="total">
-                                                <?php echo MONEDA . number_format($total, 2, '.', ','); ?></p>
+                                            <p class="h3 text-end" id="total">
+                                                <?php echo MONEDA . number_format($total, 2, '.', ','); ?>
+                                            </p>
                                         </td>
                                     </tr>
 
@@ -155,8 +157,6 @@ if ($productos != null) {
             </div>
         </div>
     </section>
-
-    <div id="wallet_container"></div>
 
     <!-- Footer-->
     <footer class="py-5 bg-dark">
@@ -171,20 +171,48 @@ if ($productos != null) {
     <script src="js/zoom.js"></script>
 
     <script>
-        const mp = new MercadoPago('TEST-cf2a6fbb-dc8f-4bc9-9efd-c27ae30ec7d4');
-        const bricksBuilder = mp.bricks();
-
-
-        mp.bricks().create("wallet", "wallet_container", {
-            initialization: {
-                preferenceId: "<PREFERENCE_ID>",
+        paypal.Buttons({
+            style: {
+                shape: "pill",
+                layout: "vertical",
+                color: "blue",
+                label: "pay",
             },
-            customization: {
-                texts: {
-                    valueProp: 'smart_option',
-                },
+            createOrder: function (data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: <?php echo $total;?>
+                        }
+                    }]
+                });
             },
-        });
+
+            onApprove: function (data, actions) {
+                let url = 'clases/captura.php'
+                actions.order.capture().then(function (detalles) {
+
+                    console.log(detalles);
+
+                    let url = 'clases/captura.php'
+
+                    return fetch(url,{
+                        method: 'post',
+                        headers:{
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            detalles: detalles
+                        })
+                    })
+                });
+            },
+
+            onCancel: function (data) {
+                alert("Pago cancelado")
+                console.log(data);
+            }
+        }).render('#paypal-button-container')
     </script>
 
     <!-- Instagram icon -->
