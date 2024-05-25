@@ -96,7 +96,6 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                 <!-- CARD-->
                 <?php  foreach($resultado as $row) { ?>
                 <div class="tarjeta" id="tarjeta-base">
-                    <a class="linkitems" href="../item/index.html">
                         <div class="card h-100">
                         <?php 
 
