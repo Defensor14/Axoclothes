@@ -1,3 +1,18 @@
+<?php
+
+require '../config/config.php';
+require '../config/database.php';
+$db = new Database();
+$con = $db->conectar();
+
+/*$sql = $con->prepare("SELECT id, nombre, price FROM producto WHERE activo=1");
+$sql->execute();
+$resultado = $sql->fetchAll(PDO::FETCH_ASSOC);*/
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,46 +40,57 @@
             <img src="images/logo.svg">
         </div>
         <a class="navbar-brand" href="index.php">AXOCLOTHES</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            
-            <ul class="menu">
-                <li><a href="index.php">Inicio</a></li>
-                <li><a href="inventario.php">Inventario</a></li>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
 
-                <li class="dropdown">
-                    <a href="AllProducts.php"class="dropbtn">Comprar</a>
-                    <div class="dropdown-content">
-                        <a href="AllProducts.php">Todos los productos</a>
-                        <a href="#vision">Tendencias</a>
-                        <a href="#valores">Nuevo</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="Login.php" class="dropbtn">Usuarios</a>
-                    <div class="dropdown-content">
-                        <a href="SignUp.php">Crear cuenta</a>
-                        <a href="Login.php">Iniciar sesion</a>
-                    </div>
-                </li>
-            </ul>
-            <form class="d-flex">
-            <a  href="chekout.php" class="btn-carrioto" type="submit">
-                <i class="bi-cart-fill me-1"></i>
-                Carrito
-                <span id="num_cart" class="badge bg-secondary"></span>
+        <ul class="menu">
+            <li><a href="index.php">Inicio</a></li>
+            <li><a href="inventario.php">Inventario</a></li>
+
+            <li class="dropdown">
+                <a href="AllProducts.php" class="dropbtn">Comprar</a>
+                <div class="dropdown-content">
+                    <a href="AllProducts.php">Todos los productos</a>
+                    <a href="#vision">Tendencias</a>
+                    <a href="#valores">Nuevo</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="Login.php" class="dropbtn">Usuarios</a>
+                <div class="dropdown-content">
+                    <a href="SignUp.php">Crear cuenta</a>
+                    <a href="Login.php">Iniciar sesion</a>
+                </div>
+            </li>
+        </ul>
+
+        <a href="chekout.php" class="btn btn-primary m-2" type="submit">
+            <i class="bi-cart-fill me-1"></i>
+            Carrito
+            <span id="num_cart" class="badge bg-secondary"></span>
+        </a>
+        <?php if (isset($_SESSION['user_id'])) { ?>
+            <a href="#" class="btn btn-success">
+                <i class="bi bi-person-circle"></i>
+                <?php echo $_SESSION['user_name']; ?>
             </a>
-        </form>
+        <?php } else { ?>
+            <a href="login.php" class="btn btn-success">
+                <i class="bi bi-person-circle"></i>
+                Ingresar
+            </a>
+        <?php } ?>
+
     </nav>
 
     <!-- Header-->
 
     <header>
         <div class="contenedorSlider">
-            <input type="radio" id="1" name="slide" hidden/>
-            <input type="radio" id="2" name="slide" hidden/>
-            <input type="radio" id="3" name="slide" hidden/>
+            <input type="radio" id="1" name="slide" hidden />
+            <input type="radio" id="2" name="slide" hidden />
+            <input type="radio" id="3" name="slide" hidden />
 
             <div class="slide">
                 <!---->
@@ -84,7 +110,7 @@
                 </div>
                 <!---->
             </div>
-            
+
             <div class="pagination">
                 <label class="pagination-item" for="1"></label>
                 <label class="pagination-item" for="2"></label>
@@ -93,7 +119,7 @@
 
         </div>
     </header>
-    
+
     <!-- Section-->
     <section>
         <div class="info-section">
@@ -105,7 +131,7 @@
                 </div>
             </div>
             <div class="info-item">
-                <img src="images/Icon_promocion.png"  alt="Cupones y promociones">
+                <img src="images/Icon_promocion.png" alt="Cupones y promociones">
                 <div>
                     <p class="info-Titulo">Cupones y promociones</p>
                     <p class="info-Subtitulo">Para todos los clientes</p>
@@ -169,7 +195,7 @@
                 <img src="images/IS_large_03.jpg">
             </div>
         </div>
-       
+
     </section>
     <!------ Footer ------>
     <footer class="py-5 bg-dark">
@@ -182,7 +208,7 @@
                 <li><a href="policy.php">PRIVACIDAD</a></li>
                 <li><a href="terms.php">TERMINOS</a></li>
             </ul>
-    
+
             <div class="signup-form text-center my-4">
                 <form class="d-inline-flex flex-column align-items-center">
                     <p class="text-white mb-2">ERES NUEVO? REGISTRATE A NUESTRO SITIO</p>
@@ -192,13 +218,14 @@
             </div>
         </div>
         <div class="container mt-3">
-            <p class="m-0 text-center text-white">© Copyright 2023 - 2024 Axoclothes Inc. Todos los derechos reservados.</p>
+            <p class="m-0 text-center text-white">© Copyright 2023 - 2024 Axoclothes Inc. Todos los derechos reservados.
+            </p>
         </div>
     </footer>
     <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
 
     <!-- Instagram icon -->
     <a href="https://www.instagram.com/axo.clothes/" class="float">

@@ -12,15 +12,39 @@ $errors = [];
 
 if (!empty($_POST)) {
 
+    $nombres = trim($_POST['nombres']);
+    $apellidos = trim($_POST['apellidos']);
+    $email = trim($_POST['email']);
+    $telefono = trim($_POST['telefono']);
+    $dni = trim($_POST['dni']);
     $usuario = trim($_POST['usuario']);
     $password = trim($_POST['password']);
+    $repassword = trim($_POST['repassword']);
 
-    if (esNulo([$usuario, $password])) {
+    if (esNulo([$nombres, $apellidos, $email, $telefono, $dni, $usuario, $password, $repassword])) {
         $errors[] = 'Debe llenar todos los campos';
     }
 
+    if (!esEmail($email)) {
+        $errors[] = 'La direccion de correo eletronico no es valida';
+    }
+
+    if (!validaPassword($password, $repassword)) {
+        $errors[] = 'Las contraseñas no coinciden';
+    }
+
+    if (usuarioExiste($usuario, $con)) {
+        $errors[] = "El nombre de usuario $usuario ya esta en uso";
+    }
+
+    if (emailExiste($email, $con)) {
+        $errors[] = "El correo electronico $email ya esta en uso";
+    }
+
     if (count($errors) == 0) {
-        $errors[] = login($usuario, $password, $con);
+
+        $id = registraCliente([$nombres, $apellidos, $email, $telefono, $dni], $con);
+
     }
 }
 
@@ -75,33 +99,11 @@ if (!empty($_POST)) {
 
     <!------------- LOGIN --------------->
     <div class="register-container">
-        <h2 class="titulos">Iniciar sesion</h2>
 
-        <?php mostrarMensajes($errors); ?>
+        
 
-        <form id="register-form" action="Login.php" method="post" autocomplete="off">
-
-            <div class="form-floating" style="margin: 15px;">
-                <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Usuario">
-                <label for="usuario">Usuario</label>
-            </div>
-
-            <div class="form-floating" style="margin: 15px;">
-                <input class="form-control" type="password" name="password" id="password" placeholder="Contraseña">
-                <label for="password">Contraseña</label>
-            </div>
-
-            <a href="recupera.php" style="color: #fff;">¿Olvidaste tu contraseña?</a><br>
-            <div class="d-grid gap-3 col-12">
-                <button type="submit" class="btn btn-primary">Ingresar</button>
-            </div>
-            <hr>
-            <div class="col-12" style="color:#fff;">
-                ¿No tienes cuenta? <a style="color:#1F67F5;" href="SignUp.php">Crea una aquí</a>
-            </div>
-
-        </form>
     </div>
+
 
     <!-- Footer-->
     <footer class="py-5 bg-dark">
