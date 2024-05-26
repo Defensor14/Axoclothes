@@ -154,7 +154,8 @@ if (!empty($_POST)) {
             <label class="formulario" for="repassword"><span class="text-danger">*</span>Repetir contraseña:</label>
             <input class="formulario-input" type="password" id="repassword" name="repassword" requireda> <br>
 
-            <i style="color: #fff"><b>Nota: </b> Los campos con asterisco ( * ) son obligatorios</i>
+            <i style="color: #fff"><b>Nota: </b> Los campos con asterisco ( * ) son obligatorios<br>
+                El DNI se refiere a algun numero o clave de identificacion personal.</i>
 
             <button class="btn_formulario" type="submit">Crear Cuenta</button>
         </form>
@@ -163,23 +164,7 @@ if (!empty($_POST)) {
 
 
     <!-- Footer-->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <a href="aboutus.html">
-                <p class="m-0 text-center enlaces-footer">Acerca de</p>
-            </a>
-            <p class="m-0 text-center text-white">•</p>
-            <a href="policy.html">
-                <p class="m-0 text-center enlaces-footer">Privacidad</p>
-            </a>
-            <p class="m-0 text-center text-white">•</p>
-            <a href="terms.html">
-                <p class="m-0 text-center enlaces-footer">Términos</p>
-            </a> <br>
-            <p class="m-0 text-center text-white">Copyright &copy; AXOCLOTHES 2024</p>
-        </div>
-    </footer>
-
+    <?php include 'footer.php'; ?>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 

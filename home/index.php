@@ -35,57 +35,10 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);*/
 </head>
 
 <body>
-    <nav class="navbar">
-        <div id="logo">
-            <img src="images/logo.svg">
-        </div>
-        <a class="navbar-brand" href="index.php">AXOCLOTHES</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
-
-        <ul class="menu">
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="inventario.php">Inventario</a></li>
-
-            <li class="dropdown">
-                <a href="AllProducts.php" class="dropbtn">Comprar</a>
-                <div class="dropdown-content">
-                    <a href="AllProducts.php">Todos los productos</a>
-                    <a href="#vision">Tendencias</a>
-                    <a href="#valores">Nuevo</a>
-                </div>
-            </li>
-            <li class="dropdown">
-                <a href="Login.php" class="dropbtn">Usuarios</a>
-                <div class="dropdown-content">
-                    <a href="SignUp.php">Crear cuenta</a>
-                    <a href="Login.php">Iniciar sesion</a>
-                </div>
-            </li>
-        </ul>
-
-        <a href="chekout.php" class="btn btn-primary m-2" type="submit">
-            <i class="bi-cart-fill me-1"></i>
-            Carrito
-            <span id="num_cart" class="badge bg-secondary"></span>
-        </a>
-        <?php if (isset($_SESSION['user_id'])) { ?>
-            <a href="#" class="btn btn-success">
-                <i class="bi bi-person-circle"></i>
-                <?php echo $_SESSION['user_name']; ?>
-            </a>
-        <?php } else { ?>
-            <a href="login.php" class="btn btn-success">
-                <i class="bi bi-person-circle"></i>
-                Ingresar
-            </a>
-        <?php } ?>
-
-    </nav>
+    
+    <?php include 'menu.php';?>
 
     <!-- Header-->
-
     <header>
         <div class="contenedorSlider">
             <input type="radio" id="1" name="slide" hidden />
@@ -198,30 +151,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);*/
 
     </section>
     <!------ Footer ------>
-    <footer class="py-5 bg-dark">
-        <div class="container d-flex justify-content-between align-items-center">
-            <ul class="footer-menu mb-0 d-flex">
-                <li><a href="#" id="scrollToTop">↑ VOLVER AL COMIENZO</a></li>
-                <li><a href="AllProducts.php">COMPRAR</a></li>
-                <li><a href="chekout.php">CARRITO</a></li>
-                <li><a href="aboutus.php">ACERCA DE</a></li>
-                <li><a href="policy.php">PRIVACIDAD</a></li>
-                <li><a href="terms.php">TERMINOS</a></li>
-            </ul>
-
-            <div class="signup-form text-center my-4">
-                <form class="d-inline-flex flex-column align-items-center">
-                    <p class="text-white mb-2">ERES NUEVO? REGISTRATE A NUESTRO SITIO</p>
-                    <input type="email" class="form-control mb-2" placeholder="Introduce tu correo" required>
-                    <button type="submit" class="btn btn-primary">Registrar</button>
-                </form>
-            </div>
-        </div>
-        <div class="container mt-3">
-            <p class="m-0 text-center text-white">© Copyright 2023 - 2024 Axoclothes Inc. Todos los derechos reservados.
-            </p>
-        </div>
-    </footer>
+    <?php include 'footer.php';?>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->

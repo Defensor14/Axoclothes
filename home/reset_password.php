@@ -4,26 +4,46 @@ require '../config/config.php';
 require '../config/database.php';
 require 'clases/clienteFunciones.php';
 
+$user_id = $_GET['id'] ?? $_POST['user_id'] ?? '';
+$token = $_GET['token'] ?? $_POST['token'] ?? '';
+
+if ($user_id == '' || $token == '') {
+    header('Location: index.php');
+    exit;
+}
 
 $db = new Database();
 $con = $db->conectar();
 
-$proceso = isset($_GET['pago']) ? 'pago' : 'login';
-
 $errors = [];
+
+if (!verificaTokenRequest($user_id, $token, $con)) {
+    echo "No se pudo verificar la informacion";
+    exit;
+}
 
 if (!empty($_POST)) {
 
-    $usuario = trim($_POST['usuario']);
     $password = trim($_POST['password']);
-    $proceso = $_POST['proceso'] ?? 'login';
+    $repassword = trim($_POST['repassword']);
 
-    if (esNulo([$usuario, $password])) {
+    if (esNulo([$user_id, $token, $password, $repassword])) {
         $errors[] = 'Debe llenar todos los campos';
     }
 
-    if (count($errors) == 0) {
-        $errors[] = login($usuario, $password, $con, $proceso);
+  
+    if (!validaPassword($password, $repassword)) {
+        $errors[] = 'Las contraseñas no coinciden';
+    }
+
+    if(count($errors) == 0) {
+        $pass_hash = password_hash($password, PASSWORD_DEFAULT);
+        if(actualizaPassword($user_id, $pass_hash, $con)){
+            echo "Contraseña actualizada.<br><a href='Login.php'>Iniciar sesion</a>";
+            exit;
+        } else {
+            $errors[] = "Error al modificar contraseña. Intentalo nuevamente.";
+        }
     }
 }
 
@@ -76,37 +96,40 @@ if (!empty($_POST)) {
         </div>
     </header>
 
-    <!------------- LOGIN --------------->
+    <!------------- Cambio contraseña --------------->
     <div class="register-container">
-        <h2 class="titulos">Iniciar sesion</h2>
+        <h3>Cambiar contraseña</h3>
 
-        <?php mostrarMensajes($errors); ?>
+        <?php mostrarMensajes($errors); ?> 
 
-        <form id="register-form" action="Login.php" method="post" autocomplete="off">
+        <form action="reset_password.php" method="post" autocomplete="off">
 
-        <input type="hidden" name="proceso" value="<?php echo $proceso; ?>">
+            <input type="hidden" name="user_id" id="user_id" value="<?= $user_id ?>">
+            <input type="hidden" name="token" id="token" value="<?= $token ?>">
 
             <div class="form-floating" style="margin: 15px;">
-                <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Usuario">
-                <label for="usuario">Usuario</label>
+                <input class="form-control" type="password" name="password" id="password" placeholder="Nueva contraseña"
+                    require>
+                <label for="password">Nueva contraseña</label>
             </div>
 
             <div class="form-floating" style="margin: 15px;">
-                <input class="form-control" type="password" name="password" id="password" placeholder="Contraseña">
-                <label for="password">Contraseña</label>
+                <input class="form-control" type="password" name="repassword" id="repassword" placeholder="Repetir contraseña"
+                    require>
+                <label for="repassword">Repetir contraseña</label>
             </div>
 
-            <a href="recupera.php" style="color: #fff;">¿Olvidaste tu contraseña?</a><br>
             <div class="d-grid gap-3 col-12">
-                <button type="submit" class="btn btn-primary">Ingresar</button>
+                <button type="submit" class="btn btn-primary">Continuar</button>
             </div>
             <hr>
             <div class="col-12" style="color:#fff;">
-                ¿No tienes cuenta? <a style="color:#1F67F5;" href="SignUp.php">Crea una aquí</a>
+                <a style="color:#1F67F5;" href="Login.php">Iniciar sesión</a>
             </div>
 
         </form>
     </div>
+
 
     <!-- Footer-->
     <?php include 'footer.php';?>

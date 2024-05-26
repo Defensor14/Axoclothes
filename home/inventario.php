@@ -102,6 +102,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['eliminar'])) {
 <!DOCTYPE html>
 <html lang="en">
 
+
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -124,44 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['eliminar'])) {
 </head>
 
 <body>
-    <nav class="navbar">
-        <div id="logo">
-            <img src="../images/logo.svg" style="width: 30px; margin: 5px;">
-        </div>
-        <a class="navbar-marca" href="index.html">AXOCLOTHES</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            
-            <ul class="menu">
-                <li><a href="index.php">Inicio</a></li>
-                <li><a href="inventario.php">Inventario</a></li>
-
-                <li class="dropdown">
-                    <a href="AllProducts.php"class="dropbtn">Comprar</a>
-                    <div class="dropdown-content">
-                        <a href="AllProducts.php">Todos los productos</a>
-                        <a href="#vision">Tendencias</a>
-                        <a href="#valores">Nuevo</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="Login.php" class="dropbtn">Usuarios</a>
-                    <div class="dropdown-content">
-                        <a href="SignUp.php">Crear cuenta</a>
-                        <a href="Login.php">Iniciar sesion</a>
-                    </div>
-                </li>
-            </ul>
-            
-        <form class="d-flex">
-            <button class="btn-carrioto" type="submit">
-                <i class="bi-cart-fill me-1"></i>
-                Carrito
-                <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-            </button>
-        </form>
-    </nav>
+<?php include 'menu.php'; ?>
 
     <div class="crud-section">
         <h3>Crear Nuevo Producto</h3>

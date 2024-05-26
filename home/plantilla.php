@@ -106,22 +106,7 @@ if (!empty($_POST)) {
 
 
     <!-- Footer-->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <a href="aboutus.html">
-                <p class="m-0 text-center enlaces-footer">Acerca de</p>
-            </a>
-            <p class="m-0 text-center text-white">•</p>
-            <a href="policy.html">
-                <p class="m-0 text-center enlaces-footer">Privacidad</p>
-            </a>
-            <p class="m-0 text-center text-white">•</p>
-            <a href="terms.html">
-                <p class="m-0 text-center enlaces-footer">Términos</p>
-            </a> <br>
-            <p class="m-0 text-center text-white">Copyright &copy; AXOCLOTHES 2024</p>
-        </div>
-    </footer>
+    <?php include 'footer.php';?>
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -108,13 +108,22 @@ if($id == '' || $token == ''){
                 </li>
             </ul>
             
-        <form class="d-flex">
-        <a  href="chekout.php" class="btn-carrioto" type="submit">
-                <i class="bi-cart-fill me-1"></i>
-                Carrito
-                <span id="num_cart" class="badge bg-secondary"><?php echo $num_cart; ?></span>
+         <a href="chekout.php" class="btn btn-primary m-2" type="submit">
+            <i class="bi-cart-fill me-1"></i>
+            Carrito
+            <span id="num_cart" class="badge bg-secondary"></span>
+        </a>
+        <?php if (isset($_SESSION['user_id'])) { ?>
+            <a href="#" class="btn btn-success">
+                <i class="bi bi-person-circle"></i>
+                <?php echo $_SESSION['user_name']; ?>
             </a>
-        </form>
+        <?php } else { ?>
+            <a href="login.php" class="btn btn-success">
+                <i class="bi bi-person-circle"></i>
+                Ingresar
+            </a>
+        <?php } ?>
     </nav>
 
     <!-- Header-->
@@ -163,14 +172,7 @@ if($id == '' || $token == ''){
     </section>
 
     <!-- Footer-->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <a href="aboutus.html"><p class="m-0 text-center enlaces-footer">Acerca de</p></a> <p class="m-0 text-center text-white">•</p>
-            <a href="policy.html"><p class="m-0 text-center enlaces-footer">Privacidad</p></a>    <p class="m-0 text-center text-white">•</p>
-            <a href="terms.html"><p class="m-0 text-center enlaces-footer">Términos</p></a> <br>
-            <p class="m-0 text-center text-white">Copyright &copy; AXOCLOTHES 2024</p>
-        </div>
-    </footer>
+    <?php include 'footer.php';?>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/zoom.js"></script>

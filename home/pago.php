@@ -52,51 +52,9 @@ if ($productos != null) {
 
 <body>
     <!-- Navigationsolo es una prueba-->
-    <nav class="navbar">
-        <div id="logo">
-            <img src="images/logo.svg" style="width: 30px; margin: 5px;">
-        </div>
-        <a class="navbar-marca" href="index.php">AXOCLOTHES</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
-
-        <ul class="menu">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="inventario.php">Inventario</a></li>
-
-
-            <li class="dropdown">
-                <a href="#" class="dropbtn">Comprar</a>
-                <div class="dropdown-content">
-                    <a href="AllProducts.php">Todos los productos</a>
-                    <a href="#vision">Tendencias</a>
-                    <a href="#valores">Nuevo</a>
-                </div>
-            </li>
-
-            <li><a href="#contacto">Sobre nosotros</a></li>
-
-            <li class="dropdown">
-                <a href="#" class="dropbtn">Usuarios</a>
-                <div class="dropdown-content">
-                    <a href="SignUp.php">Crear cuenta</a>
-                    <a href="Login.php">Iniciar sesion</a>
-                </div>
-            </li>
-
-        </ul>
-        <form class="d-flex">
-            <a href="chekout.php" class="btn-carrioto" type="submit">
-                <i class="bi-cart-fill me-1"></i>
-                Carrito
-                <span id="num_cart" class="badge bg-secondary"><?php echo $num_cart; ?></span>
-            </a>
-        </form>
-    </nav>
-
+    <?php include 'menu.php'; ?>
     <!-- Header-->
-
+    
     <!-- Section-->
     <section id="general-section">
         <div id="general-container">
@@ -159,21 +117,7 @@ if ($productos != null) {
     </section>
 
     <!-- Footer-->
-    <footer class="py-5 bg-dark">
-        <div class="container d-flex justify-content-between align-items-center">
-            <ul class="footer-menu mb-0 d-flex">
-                <li><a href="#" id="scrollToTop">↑ VOLVER AL COMIENZO</a></li>
-                <li><a href="Index.php">INICIO</a></li>
-                <li><a href="AllProducts.php">COMPRAR</a></li>
-                <li><a href="aboutus.html">ACERCA DE</a></li>
-                <li><a href="policy.html">PRIVACIDAD</a></li>
-                <li><a href="terms.html">TERMINOS</a></li>
-            </ul>
-        </div>
-        <div class="container mt-3">
-            <p class="m-0 text-center text-white">© Copyright 2023 - 2024 Axoclothes Inc. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    <?php include 'footer.php';?>
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -8,22 +8,48 @@ require 'clases/clienteFunciones.php';
 $db = new Database();
 $con = $db->conectar();
 
-$proceso = isset($_GET['pago']) ? 'pago' : 'login';
-
 $errors = [];
 
 if (!empty($_POST)) {
 
-    $usuario = trim($_POST['usuario']);
-    $password = trim($_POST['password']);
-    $proceso = $_POST['proceso'] ?? 'login';
+    $email = trim($_POST['email']);
 
-    if (esNulo([$usuario, $password])) {
+    if (esNulo([$email])) {
         $errors[] = 'Debe llenar todos los campos';
     }
 
+    if (!esEmail($email)) {
+        $errors[] = 'La direccion de correo eletronico no es valida';
+    }
+
     if (count($errors) == 0) {
-        $errors[] = login($usuario, $password, $con, $proceso);
+        if (emailExiste($email, $con)) {
+            $sql = $con->prepare("SELECT usuarios.id, clientes.nombres FROM usuarios
+            INNER JOIN  clientes ON usuarios.id_cliente=clientes.id WHERE clientes.email LIKE ? LIMIT 1");
+            $sql->execute([$email]);
+            $row = $sql->fetch(PDO::FETCH_ASSOC);
+            $user_id = $row["id"];
+            $nombres = $row["nombres"];
+
+            $token = solicitaPassword($user_id, $con);
+            if ($token !== null){
+                require 'clases/mailer.php';
+                $mailer = new Mailer();
+
+                $url = SITE_URL . '/reset_password.php?id=' . $user_id . '&token=' . $token;
+                $asunto = "Recuperar contraseña - Axoclothes";
+                $cuerpo = "No te quedes fuera $nombres: <br>Para realizar el cambio de tu contraseña da click en el siguiente enlace. <a href='$url'>$url</a>";
+                $cuerpo.= "<br>Si no fuiste tu quien realizo esta solicitud solo ignora este correo.";
+
+                if ($mailer->enviarEmail($email, $asunto, $cuerpo)) {
+                    echo "<p><b>Correo enviado</b></p>";
+                    echo "<p>Hemos enviado un correo electronico a la direccion $email para reestablecer la contraseña<br>Si no lo encuentras en tu bandeja principal revisa la bandeja de Span</p>";
+                    exit;
+                }
+            }
+        } else {
+            $errors[] = "No existe una cuenta asocidada a este correo";
+        }
     }
 }
 
@@ -76,29 +102,22 @@ if (!empty($_POST)) {
         </div>
     </header>
 
-    <!------------- LOGIN --------------->
+    <!------------- Recupera --------------->
     <div class="register-container">
-        <h2 class="titulos">Iniciar sesion</h2>
+        <h3>Recuperar contraseña</h3>
 
         <?php mostrarMensajes($errors); ?>
 
-        <form id="register-form" action="Login.php" method="post" autocomplete="off">
-
-        <input type="hidden" name="proceso" value="<?php echo $proceso; ?>">
+        <form action="recupera.php" method="post" autocomplete="off">
 
             <div class="form-floating" style="margin: 15px;">
-                <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Usuario">
-                <label for="usuario">Usuario</label>
+                <input class="form-control" type="email" name="email" id="email" placeholder="Correo electronico"
+                    require>
+                <label for="email">Correo electronicorio</label>
             </div>
 
-            <div class="form-floating" style="margin: 15px;">
-                <input class="form-control" type="password" name="password" id="password" placeholder="Contraseña">
-                <label for="password">Contraseña</label>
-            </div>
-
-            <a href="recupera.php" style="color: #fff;">¿Olvidaste tu contraseña?</a><br>
             <div class="d-grid gap-3 col-12">
-                <button type="submit" class="btn btn-primary">Ingresar</button>
+                <button type="submit" class="btn btn-primary">Recuperar</button>
             </div>
             <hr>
             <div class="col-12" style="color:#fff;">
@@ -107,6 +126,7 @@ if (!empty($_POST)) {
 
         </form>
     </div>
+
 
     <!-- Footer-->
     <?php include 'footer.php';?>
