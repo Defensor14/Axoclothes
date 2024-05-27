@@ -9,7 +9,6 @@ $con = $db->conectar();
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);*/
 
-
 ?>
 
 

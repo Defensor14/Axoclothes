@@ -28,8 +28,8 @@ if (is_array($datos)) {
     $email = $row_cliente['email'];
     //$id_cliente = $datos['detalles']['payer']['payer_id'];
 
-    $comando = $con->prepare("INSERT INTO compra (id_transaccion, fecha, status, email, id_cliente, total) VALUES (?,?,?,?,?,?)");
-    $comando->execute([$id_transaccion, $fecha_nueva, $status, $email, $idCliente, $total]);
+    $comando = $con->prepare("INSERT INTO compra (id_transaccion, fecha, status, email, id_cliente, total, medio_pago) VALUES (?,?,?,?,?,?,?)");
+    $comando->execute([$id_transaccion, $fecha_nueva, $status, $email, $idCliente, $total, 'Paypal']);
     $id = $con->lastInsertId();
 
     if ($id > 0) {

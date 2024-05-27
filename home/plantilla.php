@@ -73,18 +73,7 @@ if (!empty($_POST)) {
 
 <body>
     <!-- Navigation-->
-    <nav class="navbar">
-        <div id="logo">
-            <img src="images/logo.svg">
-        </div>
-        <a class="navbar-brand" href="index.php">AXOCLOTHES</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
-
-        <ul class="menu">
-            <a href="Login.php">Iniciar sesion</a>
-    </nav>
+    <?php include 'menu.php';?>
 
     <!-- Header-->
     <header class="headercontenedor py-5">

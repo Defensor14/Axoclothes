@@ -92,7 +92,4 @@ $sql->execute([$idCliente]);
     </a>
 
 </body>
-
-
-
 </html>

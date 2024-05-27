@@ -27,6 +27,8 @@ if (!empty($_POST)) {
     }
 }
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +64,7 @@ if (!empty($_POST)) {
                 class="navbar-toggler-icon"></span></button>
 
         <ul class="menu">
-            <a href="Login.php">Iniciar sesion</a>
+            <a href="index.php">Explorar sin cuenta</a>
     </nav>
 
     <!-- Header-->
