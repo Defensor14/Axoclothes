@@ -63,8 +63,6 @@
     display: block;
 }
 
-
-
 /* Estilos para la opción desplegable */
 .dropdown {
     position: relative;
@@ -112,6 +110,7 @@
     padding-right: 3rem !important;
     padding-left: 3rem !important;
     margin-top: 3rem !important;
+    min-height: 100vh; /* Ensure the container takes at least the full height of the viewport */
 }
 
 .cotenedor-interno{
@@ -124,11 +123,16 @@
     margin: 10px;
 }
 
+.container-compras {
+  padding-left: 20px;
+  max-width: 1200px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
 /*-------------------------------------------------*/
 /*---------------------HEADER----------------------*/
-
-
 
 .headercontenedor {
 
@@ -169,7 +173,6 @@
 }
 
 
-
 /*-------------------------------------------------*/
 /*--------------------REGISTRO---------------------*/
 .register-container {
@@ -186,7 +189,7 @@
 }
 
 .formulario{
-    color: #ffffff;
+    color: #FFFFFF;
     display: block;
     margin-bottom: 5px;
 }
@@ -212,7 +215,7 @@ input {
 .btn_formulario {
     width: 30%;
     padding: 12px;
-    background-color: #ff004c;
+    background-color: #F7567C;
     color: #fff;
     border-radius: 70px;
     cursor: pointer;
@@ -236,8 +239,6 @@ input {
 
 /*-------------------------------------------------*/
 /*---------------INICIO DE SESIÓN------------------*/
-
-
 
 .signup-link {
     text-align: center;
@@ -266,6 +267,7 @@ input {
     align-items: center;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    background-color: #F8F7F7;
   }
 
   .navbar-brand {
@@ -592,8 +594,6 @@ a {
   margin: 0;
 }
 
-
-
 .interfaz-index {
   display: flex;
   flex-wrap: wrap;
@@ -623,16 +623,6 @@ a {
   object-fit: cover;
 }
 
-.contenedor-index1 img {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.3s ease;
-}
-
-.contenedor-index1:hover img {
-  transform: scale(1.2);
-}
-
   .contenedor-index2 {
     display: flex;
     justify-content: center;
@@ -649,6 +639,16 @@ a {
     height: 100%; /* Ajusta la imagen para que ocupe todo el alto del contenedor */
     object-fit: cover; /* Ajusta la imagen manteniendo su relación de aspecto y recortándola si es necesario */
   }
+
+  .contenedor-index1 img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+  .contenedor-index1:hover img {
+    transform: scale(1.2);
+}
 
   .contenedor-index3{
     width: 100%;
@@ -687,61 +687,60 @@ a {
   .zoom-in {
       transform: scale(1.2);
   }
-
 }
 
- /*--------------------------------------------------------------------------------------------FOOTER-MENU----------------------------*/
+  /*--------------------------------------------------------------------------------------------FOOTER-MENU----------------------------*/
 
- .footer-menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
-
-.footer-menu li {
-  text-align: center;
-  position: relative;
-}
-
-.footer-menu a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  transition: color 0.3s ease;
-}
-
-.footer-menu a:hover {
-  color: #ff1b50;
-}
-
-.centered {
-  text-align: center;
-}
-
-.centered ul {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0;
-}
-
-.centered ul li {
-  display: block;
-  text-align: center;
-}
-
-.signup-form {
-  color: white;
-  margin-left: auto; /* Move signup form to the right */
-  text-align: center;
-}
-
-.signup-form input,
-.signup-form button {
-  height: 38px;
-}
-
-.signup-form input {
-  max-width: 200px;
-}
+  .footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .footer-menu li {
+    text-align: center;
+    position: relative;
+  }
+  
+  .footer-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-menu a:hover {
+    color: #ff1b50;
+  }
+  
+  .centered {
+    text-align: center;
+  }
+  
+  .centered ul {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+  }
+  
+  .centered ul li {
+    display: block;
+    text-align: center;
+  }
+  
+  .signup-form {
+    color: white;
+    margin-left: auto; /* Move signup form to the right */
+    text-align: center;
+  }
+  
+  .signup-form input,
+  .signup-form button {
+    height: 38px;
+  }
+  
+  .signup-form input {
+    max-width: 200px;
+  }
