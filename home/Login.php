@@ -63,6 +63,8 @@ if (!empty($_POST)) {
 
     <!------------- LOGIN --------------->
     <div class="register-container">
+        <br>
+        <br>
         <h2 class="titulos">Iniciar sesion</h2>
 
         <?php mostrarMensajes($errors); ?>
