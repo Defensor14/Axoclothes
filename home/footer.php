@@ -10,12 +10,13 @@
             </ul>
 
             <div class="signup-form text-center my-4">
-                <form class="d-inline-flex flex-column align-items-center">
+                <form id="signup-form" class="d-inline-flex flex-column align-items-center">
                     <p class="text-white mb-2">ERES NUEVO? REGISTRATE A NUESTRO SITIO</p>
-                    <input type="email" class="form-control mb-2" placeholder="Introduce tu correo" required>
+                    <input id="footer-email" type="email" class="form-control mb-2" placeholder="Introduce tu correo" required>
                     <button type="submit" class="btn btn-primary">Registrar</button>
                 </form>
             </div>
+            
         </div>
         <div class="container mt-3">
             <p class="m-0 text-center text-white">© Copyright 2023 - 2024 Axoclothes Inc. Todos los derechos reservados.
