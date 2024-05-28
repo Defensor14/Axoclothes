@@ -11,8 +11,6 @@
     <ul class="menu">
         <li><a href="index.php">Inicio</a></li> 
         <li><a href="AllProducts.php">Todos los productos</a></li>
-        <li><a href="#vision">Tendencias</a></li>
-        <li><a href="#valores">Nuevo</a></li>
     </ul>
 
     <a href="chekout.php" class="btn btn-primary btn-sm m-2" type="submit">

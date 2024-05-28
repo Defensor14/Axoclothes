@@ -100,27 +100,39 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);*/
 
         <div class="interfaz-index">
             <div class="contenedor-index1">
+                <a href="AllProducts.php">
                 <img src="images/IS_small_01.png">
+                </a>
             </div>
 
             <div class="contenedor-index1">
+                <a href="AllProducts.php">
                 <img src="images/IS_small_02.png">
+                </a>
             </div>
 
             <div class="contenedor-index1">
+                <a href="AllProducts.php">
                 <img src="images/IS_small_03.png">
+                </a>
             </div>
 
             <div class="contenedor-index1">
+                <a href="AllProducts.php">
                 <img src="images/IS_small_04.png">
+                </a>
             </div>
 
             <div class="contenedor-index1">
+                <a href="AllProducts.php">
                 <img src="images/IS_small_05.png">
+                </a>
             </div>
 
             <div class="contenedor-index1">
+                <a href="AllProducts.php">
                 <img src="images/IS_small_06.png">
+                </a>
             </div>
         </div>
 

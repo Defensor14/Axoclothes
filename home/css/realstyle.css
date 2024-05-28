@@ -121,6 +121,7 @@
 
 .tarjeta{
     margin: 10px;
+    width: 20%;
 }
 
 .container-compras {
@@ -347,6 +348,12 @@ a {
   a:not([href]):not([class]), a:not([href]):not([class]):hover {
     color: inherit;
     text-decoration: none;
+  }
+
+
+
+  .img-cards-size{
+    width: 100%;
   }
 
 

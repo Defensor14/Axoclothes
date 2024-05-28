@@ -45,12 +45,37 @@ $token_tmp = hash_hmac('sha1', $id, KEY_TOKEN);
     <?php include 'menu.php'; ?>
 
     <!-- Header-->
-    <header class="headercontenedor py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Explora nuestro catálogo</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Encuentra todo lo que necesitas, y lo que no también.</p>
+    <header>
+        <div class="contenedorSlider">
+            <input type="radio" id="1" name="slide" hidden />
+            <input type="radio" id="2" name="slide" hidden />
+            <input type="radio" id="3" name="slide" hidden />
+
+            <div class="slide">
+                <!---->
+                <div class="item-slide" id="s1" style="background-color: #ffaab6;">
+                </div>
+                <!---->
+
+                <!---->
+                <div class="item-slide" id="s2" style="background-color: #ffd659;">
+
+                </div>
+                <!---->
+
+                <!---->
+                <div class="item-slide" id="s3" style="background-color: #ff6378;">
+
+                </div>
+                <!---->
             </div>
+
+            <div class="pagination">
+                <label class="pagination-item" for="1"></label>
+                <label class="pagination-item" for="2"></label>
+                <label class="pagination-item" for="3"></label>
+            </div>
+
         </div>
     </header>
 
@@ -73,7 +98,7 @@ $token_tmp = hash_hmac('sha1', $id, KEY_TOKEN);
                             <!-- Product image-->
                             <!-- Descuento-->
                             <div class="badge bg-dark text-white position-absolute top-0 end-0 mt-1 me-1"></div>
-                            <img class="card-img-top zoom" src="<?php echo $imagen; ?>" alt="..." />
+                            <img class="card-img-top img-cards-size" src="<?php echo $imagen; ?>" alt="..." />
                             </figure>
                             <!-- Product details-->
                             <div class="card-body p-4">
