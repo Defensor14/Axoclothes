@@ -55,48 +55,56 @@ if (!empty($_POST)) {
 
 </head>
 
-<body style="height: 100vh; background-image: url('https://static.vecteezy.com/system/resources/previews/010/839/386/non_2x/aesthetic-minimal-cute-pastel-pink-wallpaper-illustration-perfect-for-wallpaper-backdrop-postcard-background-banner-vector.jpg');">
+<body
+    style="height: 100vh; background-image: url('https://static.vecteezy.com/system/resources/previews/010/839/386/non_2x/aesthetic-minimal-cute-pastel-pink-wallpaper-illustration-perfect-for-wallpaper-backdrop-postcard-background-banner-vector.jpg');
+    background-size: cover;">
     <!-- Navigation-->
-    <?php include 'menu_registro.php';?>
+    <?php include 'menu_registro.php'; ?>
     <!-- Header-->
-    
+
 
     <!------------- LOGIN --------------->
-    <div class="register-container">
-        <br>
-        <br>
-        <h2 class="titulos">Iniciar sesion</h2>
+    <main>
+        <div class="container-lg">
+            <div class="register-container">
+                <br>
+                <br>
+                <h2 class="titulos">Iniciar sesion</h2>
 
-        <?php mostrarMensajes($errors); ?>
+                <?php mostrarMensajes($errors); ?>
 
-        <form id="register-form" action="Login.php" method="post" autocomplete="off">
+                <form id="register-form" action="Login.php" method="post" autocomplete="off">
 
-        <input type="hidden" name="proceso" value="<?php echo $proceso; ?>">
+                    <input type="hidden" name="proceso" value="<?php echo $proceso; ?>">
 
-            <div class="form-floating" style="margin: 15px;">
-                <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Usuario">
-                <label for="usuario">Usuario</label>
+                    <div class="form-floating" style="margin: 15px;">
+                        <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Usuario">
+                        <label for="usuario">Usuario</label>
+                    </div>
+
+                    <div class="form-floating" style="margin: 15px;">
+                        <input class="form-control" type="password" name="password" id="password"
+                            placeholder="Contraseña">
+                        <label for="password">Contraseña</label>
+                    </div>
+
+                    <a href="recupera.php" style="color: #fff;">¿Olvidaste tu contraseña?</a><br>
+                    <div class="d-grid gap-3 col-12">
+                        <button type="submit" class="btn"
+                            style="background-color: #FA8191; color: white;">Ingresar</button>
+                    </div>
+                    <hr>
+                    <div class="col-12" style="color:#fff;">
+                        ¿No tienes cuenta? <a style="color:#1F67F5;" href="SignUp.php">Crea una aquí</a>
+                    </div>
+
+                </form>
             </div>
-
-            <div class="form-floating" style="margin: 15px;">
-                <input class="form-control" type="password" name="password" id="password" placeholder="Contraseña">
-                <label for="password">Contraseña</label>
-            </div>
-
-            <a href="recupera.php" style="color: #fff;">¿Olvidaste tu contraseña?</a><br>
-            <div class="d-grid gap-3 col-12">
-                <button type="submit" class="btn" style="background-color: #FA8191; color: white;">Ingresar</button>
-            </div>
-            <hr>
-            <div class="col-12" style="color:#fff;">
-                ¿No tienes cuenta? <a style="color:#1F67F5;" href="SignUp.php">Crea una aquí</a>
-            </div>
-
-        </form>
-    </div>
+        </div>
+    </main>
 
     <!-- Footer-->
-    <?php include 'footer_registro.php';?>
+    <?php include 'footer_registro.php'; ?>
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
