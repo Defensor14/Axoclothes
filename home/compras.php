@@ -44,19 +44,10 @@ $sql->execute([$idCliente]);
     <?php include 'menu.php'; ?>
 
     <!-- Header-->
-    <header class="headercontenedor py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">¡Obtén más beneficios!</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Recibe descuentos y entérate de promociones al registrarte
-                    en Axoclothes</p>
-            </div>
-        </div>
-    </header>
 
     <!------------- Hisorial de compras --------------->
     <main>
-        <div class="container">
+        <div class="container-compras">
 
             <h4>Mis compras</h4>
             <hr>
