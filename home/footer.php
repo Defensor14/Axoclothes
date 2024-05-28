@@ -4,7 +4,6 @@
                 <li><a href="#" id="scrollToTop">↑ VOLVER AL COMIENZO</a></li>
                 <li><a href="AllProducts.php">COMPRAR</a></li>
                 <li><a href="chekout.php">CARRITO</a></li>
-                <li><a href="aboutus.php">ACERCA DE</a></li>
                 <li><a href="policy.php">PRIVACIDAD</a></li>
                 <li><a href="terms.php">TERMINOS</a></li>
             </ul>

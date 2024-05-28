@@ -20,43 +20,7 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <div id="logo">
-            <img src="images/logo.svg">
-        </div>
-        <a class="navbar-brand" href="index.php">AXOCLOTHES</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            
-            <ul class="menu">
-                <li><a href="index.php">Inicio</a></li>
-                <li><a href="inventario.php">Inventario</a></li>
-
-                <li class="dropdown">
-                    <a href="AllProducts.php"class="dropbtn">Comprar</a>
-                    <div class="dropdown-content">
-                        <a href="AllProducts.php">Todos los productos</a>
-                        <a href="#vision">Tendencias</a>
-                        <a href="#valores">Nuevo</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="Login.php" class="dropbtn">Usuarios</a>
-                    <div class="dropdown-content">
-                        <a href="SignUp.php">Crear cuenta</a>
-                        <a href="Login.php">Iniciar sesion</a>
-                    </div>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <button class="btn-carrioto" type="submit">
-                    <i class="bi-cart-fill me-1"></i>
-                    Carrito
-                    <span id="num_cart" class="badge bg-secondary"></span>
-                </button>
-            </form>
-    </nav>
+  <?php include 'menu.php';?>
 
     <!-- Header-->
     
