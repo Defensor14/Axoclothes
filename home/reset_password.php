@@ -70,35 +70,15 @@ if (!empty($_POST)) {
 
 </head>
 
-<body>
+<body style="background-color: #9c9c9c;">
     <!-- Navigation-->
-    <nav class="navbar">
-        <div id="logo">
-            <img src="images/logo.svg">
-        </div>
-        <a class="navbar-brand" href="index.php">AXOCLOTHES</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
-
-        <ul class="menu">
-            <a href="Login.php">Iniciar sesion</a>
-    </nav>
+    <?php include 'menu_registro.php';?>
 
     <!-- Header-->
-    <header class="headercontenedor py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">¡Obtén más beneficios!</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Recibe descuentos y entérate de promociones al registrarte
-                    en Axoclothes</p>
-            </div>
-        </div>
-    </header>
 
     <!------------- Cambio contraseña --------------->
     <div class="register-container">
-        <h3>Cambiar contraseña</h3>
+        <h3 style="color: #FFFFFF;">Recuperar Contraseña</h3>
 
         <?php mostrarMensajes($errors); ?> 
 
@@ -120,7 +100,7 @@ if (!empty($_POST)) {
             </div>
 
             <div class="d-grid gap-3 col-12">
-                <button type="submit" class="btn btn-primary">Continuar</button>
+                <button type="submit" class="btn btn-primary" style="background-color: #FA8191; color: white; width: 50%; margin: 0 auto;">Continuar</button>
             </div>
             <hr>
             <div class="col-12" style="color:#fff;">
@@ -132,7 +112,7 @@ if (!empty($_POST)) {
 
 
     <!-- Footer-->
-    <?php include 'footer.php';?>
+    <?php include 'footer_registro.php';?>
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
