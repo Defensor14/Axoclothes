@@ -155,7 +155,7 @@ if (!empty($_POST)) {
 
 
     <!-- Footer-->
-    <?php include 'footer.php'; ?>
+    <?php include 'footer_registro.php'; ?>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
