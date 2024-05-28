@@ -50,33 +50,31 @@ if (!empty($_POST)) {
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/theme.css" rel="stylesheet" />
 
+
+
+
 </head>
 
-<body>
+<body style="background-color: #9c9c9c;">
     <!-- Navigation-->
+    <?php include 'menu_registro.php';?>
+
     <nav class="navbar">
         <div id="logo">
             <img src="images/logo.svg">
         </div>
         <a class="navbar-brand" href="index.php">AXOCLOTHES</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
-
+        <button class="navbar-toggler btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <spanclass="navbar-toggler-icon"></span></button>
         <ul class="menu">
-            <a href="index.php">Explorar sin cuenta</a>
+            <li><a href="index.php">Inicio</a></li>
+            <li><a href="window.history.back()">Regresar</a></li> 
+        </ul>
     </nav>
 
     <!-- Header-->
-    <header class="headercontenedor py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">¡Obtén más beneficios!</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Recibe descuentos y entérate de promociones al registrarte
-                    en Axoclothes</p>
-            </div>
-        </div>
-    </header>
+    
 
     <!------------- LOGIN --------------->
     <div class="register-container">
@@ -100,7 +98,7 @@ if (!empty($_POST)) {
 
             <a href="recupera.php" style="color: #fff;">¿Olvidaste tu contraseña?</a><br>
             <div class="d-grid gap-3 col-12">
-                <button type="submit" class="btn btn-primary">Ingresar</button>
+                <button type="submit" class="btn" style="background-color: #FA8191; color: white;">Ingresar</button>
             </div>
             <hr>
             <div class="col-12" style="color:#fff;">
@@ -111,7 +109,7 @@ if (!empty($_POST)) {
     </div>
 
     <!-- Footer-->
-    <?php include 'footer.php';?>
+    <?php include 'footer_registro.php';?>
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
