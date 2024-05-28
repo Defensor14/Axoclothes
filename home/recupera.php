@@ -31,14 +31,14 @@ if (!empty($_POST)) {
             $nombres = $row["nombres"];
 
             $token = solicitaPassword($user_id, $con);
-            if ($token !== null){
+            if ($token !== null) {
                 require 'clases/mailer.php';
                 $mailer = new Mailer();
 
                 $url = SITE_URL . '/reset_password.php?id=' . $user_id . '&token=' . $token;
                 $asunto = "Recuperar contraseña - Axoclothes";
                 $cuerpo = "No te quedes fuera $nombres: <br>Para realizar el cambio de tu contraseña da click en el siguiente enlace. <a href='$url'>$url</a>";
-                $cuerpo.= "<br>Si no fuiste tu quien realizo esta solicitud solo ignora este correo.";
+                $cuerpo .= "<br>Si no fuiste tu quien realizo esta solicitud solo ignora este correo.";
 
                 if ($mailer->enviarEmail($email, $asunto, $cuerpo)) {
                     echo "<p><b>Correo enviado</b></p>";
@@ -75,180 +75,54 @@ if (!empty($_POST)) {
 
 </head>
 
-<body style="background-image: url('https://static.vecteezy.com/system/resources/previews/010/839/386/non_2x/aesthetic-minimal-cute-pastel-pink-wallpaper-illustration-perfect-for-wallpaper-backdrop-postcard-background-banner-vector.jpg');">
+<body
+    style="background-image: url('https://static.vecteezy.com/system/resources/previews/010/839/386/non_2x/aesthetic-minimal-cute-pastel-pink-wallpaper-illustration-perfect-for-wallpaper-backdrop-postcard-background-banner-vector.jpg');background-size: cover;">
     <!-- Navigation-->
-    <?php include 'menu_registro.php';?>
-
-    <nav class="navbar">
-        <div id="logo">
-            <img src="images/logo.svg">
-        </div>
-        <a class="navbar-brand" href="index.php">AXOCLOTHES</a>
-        <button class="navbar-toggler btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <spanclass="navbar-toggler-icon"></span></button>
-        <ul class="menu">
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="window.history.back()">Regresar</a></li> 
-        </ul>
-    </nav>
+    <?php include 'menu_registro.php'; ?>
 
     <!-- Header-->
-    
 
     <!------------- LOGIN --------------->
-    <div class="register-container">
-        <br>
-        <br>
-        <h2 class="titulos">Iniciar sesion</h2>
+    <main>
+        <div class="register-container">
+            <h3 style="color: #FFFFFF;">Recuperar Contraseña</h3>
 
-        <?php mostrarMensajes($errors); ?>
+            <?php mostrarMensajes($errors); ?>
 
-        <form id="register-form" action="Login.php" method="post" autocomplete="off">
+            <form action="recupera.php" method="post" autocomplete="off">
 
-        <input type="hidden" name="proceso" value="<?php echo $proceso; ?>">
+                <div class="form-floating" style="margin: 15px;">
+                    <input class="form-control" type="email" name="email" id="email" placeholder="Correo electronico"
+                        require>
+                    <label for="email">Correo Electrónico</label>
+                </div>
 
-            <div class="form-floating" style="margin: 15px;">
-                <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Usuario">
-                <label for="usuario">Usuario</label>
-            </div>
+                <div class="d-grid gap-3 col-12">
+                    <button type="submit" class="btn btn-primary"
+                        style="background-color: #FA8191; color: white; width: 50%; margin: 0 auto;">Recuperar</button>
+                </div>
+                <hr>
+                <div class="col-12" style="color:#fff;">
+                    ¿No tienes cuenta? <a style="color:#1F67F5;" href="SignUp.php">Crea una aquí</a>
+                </div>
 
-            <div class="form-floating" style="margin: 15px;">
-                <input class="form-control" type="password" name="password" id="password" placeholder="Contraseña">
-                <label for="password">Contraseña</label>
-            </div>
-
-            <a href="recupera.php" style="color: #fff;">¿Olvidaste tu contraseña?</a><br>
-            <div class="d-grid gap-3 col-12">
-                <button type="submit" class="btn" style="background-color: #FA8191; color: white;">Ingresar</button>
-            </div>
-            <hr>
-            <div class="col-12" style="color:#fff;">
-                ¿No tienes cuenta? <a style="color:#1F67F5;" href="SignUp.php">Crea una aquí</a>
-            </div>
-
-        </form>
-    </div>
-
-    <!-- Footer-->
-    <?php include 'footer_registro.php';?>
-
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Instagram icon -->
-    <a href="https://www.instagram.com/axo.clothes/" class="float">
-        <img class="img-w" src="images/wasac.png">
-    </a>
-
-</body>
-    <!-- Navigation-->
-    <?php include 'menu_registro.php';?>
-
-    <nav class="navbar">
-        <div id="logo">
-            <img src="images/logo.svg">
+            </form>
         </div>
-        <a class="navbar-brand" href="index.php">AXOCLOTHES</a>
-        <button class="navbar-toggler btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <spanclass="navbar-toggler-icon"></span></button>
-        <ul class="menu">
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="window.history.back()">Regresar</a></li> 
-        </ul>
-    </nav>
-
-    <!-- Header-->
-    
-
-    <!------------- LOGIN --------------->
-    <div class="register-container">
-        <br>
-        <br>
-        <h2 class="titulos">Iniciar sesion</h2>
-
-        <?php mostrarMensajes($errors); ?>
-
-        <form id="register-form" action="Login.php" method="post" autocomplete="off">
-
-        <input type="hidden" name="proceso" value="<?php echo $proceso; ?>">
-
-            <div class="form-floating" style="margin: 15px;">
-                <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Usuario">
-                <label for="usuario">Usuario</label>
-            </div>
-
-            <div class="form-floating" style="margin: 15px;">
-                <input class="form-control" type="password" name="password" id="password" placeholder="Contraseña">
-                <label for="password">Contraseña</label>
-            </div>
-
-            <a href="recupera.php" style="color: #fff;">¿Olvidaste tu contraseña?</a><br>
-            <div class="d-grid gap-3 col-12">
-                <button type="submit" class="btn" style="background-color: #FA8191; color: white;">Ingresar</button>
-            </div>
-            <hr>
-            <div class="col-12" style="color:#fff;">
-                ¿No tienes cuenta? <a style="color:#1F67F5;" href="SignUp.php">Crea una aquí</a>
-            </div>
-
-        </form>
-    </div>
-
-    <!-- Footer-->
-    <?php include 'footer_registro.php';?>
-
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Instagram icon -->
-    <a href="https://www.instagram.com/axo.clothes/" class="float">
-        <img class="img-w" src="images/wasac.png">
-    </a>
+    </main>
 
 </body>
-    <!-- Navigation-->
-    <?php include 'menu_registro.php';?>
 
-    <!-- Header-->
+<!-- Footer-->
+<?php include 'footer_registro.php'; ?>
 
-    <!------------- Recupera --------------->
-    <div class="register-container">
-        <h3 style="color: #FFFFFF;">Recuperar Contraseña</h3>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-        <?php mostrarMensajes($errors); ?>
-
-        <form action="recupera.php" method="post" autocomplete="off">
-
-            <div class="form-floating" style="margin: 15px;">
-                <input class="form-control" type="email" name="email" id="email" placeholder="Correo electronico"
-                    require>
-                <label for="email">Correo Electrónico</label>
-            </div>
-
-            <div class="d-grid gap-3 col-12">
-                <button type="submit" class="btn btn-primary" style="background-color: #FA8191; color: white; width: 50%; margin: 0 auto;">Recuperar</button>
-            </div>
-            <hr>
-            <div class="col-12" style="color:#fff;">
-                ¿No tienes cuenta? <a style="color:#1F67F5;" href="SignUp.php">Crea una aquí</a>
-            </div>
-
-        </form>
-    </div>
-
-
-    <!-- Footer-->
-    <?php include 'footer_registro.php';?>
-
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Instagram icon -->
-    <a href="https://www.instagram.com/axo.clothes/" class="float">
-        <img class="img-w" src="images/wasac.png">
-    </a>
+<!-- Instagram icon -->
+<a href="https://www.instagram.com/axo.clothes/" class="float">
+    <img class="img-w" src="images/wasac.png">
+</a>
 
 </body>
+
 </html>

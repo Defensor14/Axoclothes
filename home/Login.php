@@ -55,13 +55,11 @@ if (!empty($_POST)) {
 
 </head>
 
-<body
-    style="height: 100vh; background-image: url('https://static.vecteezy.com/system/resources/previews/010/839/386/non_2x/aesthetic-minimal-cute-pastel-pink-wallpaper-illustration-perfect-for-wallpaper-backdrop-postcard-background-banner-vector.jpg');
-    background-size: cover;">
+<body style="height: 100vh; background-image: url('https://static.vecteezy.com/system/resources/previews/010/839/386/non_2x/aesthetic-minimal-cute-pastel-pink-wallpaper-illustration-perfect-for-wallpaper-backdrop-postcard-background-banner-vector.jpg');background-size: cover;">
+
     <!-- Navigation-->
     <?php include 'menu_registro.php'; ?>
     <!-- Header-->
-
 
     <!------------- LOGIN --------------->
     <main>
