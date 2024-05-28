@@ -95,21 +95,9 @@ if (!empty($_POST)) {
 
 </head>
 
-<body>
+<body style="background-color: #9c9c9c;">
     <!-- Navigation-->
-    <nav class="navbar">
-        <div id="logo">
-            <img src="images/logo.svg">
-        </div>
-        <a class="navbar-brand" href="index.php">AXOCLOTHES</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
-
-        <ul class="menu">
-        <a href="index.php">Explorar sin cuenta</a>
-    </nav>
-
+    <?php include 'menu_registro.php';?>
     <!-- Header-->
     
     <!------------- REGISTRO --------------->
@@ -126,7 +114,7 @@ if (!empty($_POST)) {
             <input class="formulario-input" type="text" id="apellidos" name="apellidos" requireda>
 
             <label class="formulario" for="email"><span class="text-danger">*</span>Correo Electrónico:</label>
-            <input class="formulario-input" type="email" id="email" name="email" requireda>
+            <input id="signup-email" class="formulario-input" type="email" id="email" name="email" required>
             <span id="validaEmail" style="color: red"></span>
 
             <label class="formulario" for="telefono"><span class="text-danger">*</span>Telefono:</label>
@@ -146,7 +134,7 @@ if (!empty($_POST)) {
             <input class="formulario-input" type="password" id="repassword" name="repassword" requireda> <br>
 
             <i style="color: #fff"><b>Nota: </b> Los campos con asterisco ( * ) son obligatorios<br>
-                El DNI se refiere a algun numero o clave de identificacion personal.</i>
+                El DNI se refiere a algún número o clave de identificación personal.</i>
 
             <button class="btn_formulario" type="submit">Crear Cuenta</button>
         </form>
