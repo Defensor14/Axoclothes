@@ -46,7 +46,7 @@ $sql->execute([$idCliente]);
     <!-- Header-->
 
     <!------------- Hisorial de compras --------------->
-    <main>
+    
         <div class="container-compras">
 
             <h4>Mis compras</h4>
@@ -68,7 +68,7 @@ $sql->execute([$idCliente]);
             <?php } ?>
 
         </div>
-    </main>
+   
 
 
     <!-- Footer-->
