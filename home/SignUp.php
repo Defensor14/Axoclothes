@@ -111,16 +111,7 @@ if (!empty($_POST)) {
     </nav>
 
     <!-- Header-->
-    <header class="headercontenedor py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">¡Obtén más beneficios!</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Recibe descuentos y entérate de promociones al registrarte
-                    en Axoclothes</p>
-            </div>
-        </div>
-    </header>
-
+    
     <!------------- REGISTRO --------------->
     <div class="register-container">
         <h2 class="titulos">Crea tu cuenta</h2>
