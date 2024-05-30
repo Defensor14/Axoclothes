@@ -1,5 +1,5 @@
 <?php
-
+<!-----COMENTARIO----->
 require '../config/config.php';
 require '../config/database.php';
 $db = new Database();
